@@ -1,0 +1,17 @@
+package br.com.speedy.wsipapp.enumerated;
+
+public enum TipoDestinoRetirada {
+
+	PROCESSO("Processo"),
+	DESCARTE("Descarte");
+	
+	private String tipo;
+	
+	private TipoDestinoRetirada(String tipo){
+		this.tipo = tipo;
+	}
+	
+	public String getTipo(){
+		return tipo;
+	}
+}

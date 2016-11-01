@@ -1,0 +1,98 @@
+package com.irandubamodulo01.model;
+
+import javax.persistence.*;
+import java.io.Serializable;
+import java.math.BigDecimal;
+import java.util.List;
+
+/**
+ * Created by henrique on 28/04/2015.
+ */
+@Entity
+@Table(name = "pedido")
+public class Pedido implements Serializable{
+
+    /**
+     *
+     */
+    private static final long serialVersionUID = 1L;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(unique = true, nullable = false)
+    private Long id;
+
+    @Column
+    private BigDecimal valor;
+
+    @Column
+    private String codigo;
+
+    @ManyToOne
+    private Vendedor vendedor;
+
+    @ManyToOne
+    private Cliente cliente;
+
+    @ManyToOne
+    private Transportadora transportadora;
+
+    @OneToMany(mappedBy="pedido", fetch=FetchType.LAZY)
+    private List<Produto> produtos;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public BigDecimal getValor() {
+        return valor;
+    }
+
+    public void setValor(BigDecimal valor) {
+        this.valor = valor;
+    }
+
+    public String getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
+    }
+
+    public Vendedor getVendedor() {
+        return vendedor;
+    }
+
+    public void setVendedor(Vendedor vendedor) {
+        this.vendedor = vendedor;
+    }
+
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
+
+    public Transportadora getTransportadora() {
+        return transportadora;
+    }
+
+    public void setTransportadora(Transportadora transportadora) {
+        this.transportadora = transportadora;
+    }
+
+    public List<Produto> getProdutos() {
+        return produtos;
+    }
+
+    public void setProdutos(List<Produto> produtos) {
+        this.produtos = produtos;
+    }
+}

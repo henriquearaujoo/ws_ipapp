@@ -1,0 +1,26 @@
+package br.com.speedy.wsipapp.repository;
+
+import java.util.List;
+
+import javax.persistence.EntityManager;
+import javax.persistence.TypedQuery;
+import br.com.speedy.wsipapp.model.Fornecedor;
+
+public class FornecedoresRepository {
+	
+	private EntityManager manager;
+	
+	public FornecedoresRepository(){}
+	
+	
+	public FornecedoresRepository(EntityManager manager){
+		this.manager = manager;
+	}
+	
+	
+	public List<Fornecedor> todos() {
+		TypedQuery<Fornecedor> query = manager.createQuery("select new Fornecedor(f.id, f.nome, f.cpf, f.cnpj) from Fornecedor f order by f.nome", Fornecedor.class);
+		return query.getResultList();
+	}
+
+}

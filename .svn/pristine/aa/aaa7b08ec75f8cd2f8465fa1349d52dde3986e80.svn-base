@@ -1,0 +1,36 @@
+package br.com.speedy.wsipapp.repository;
+
+import br.com.speedy.wsipapp.model.Observacao;
+import br.com.speedy.wsipapp.model.ObservacaoArmazenamento;
+
+import javax.persistence.EntityManager;
+
+public class ObservacaoArmazenamentoRepository {
+
+
+	private EntityManager manager;
+
+	public ObservacaoArmazenamentoRepository(){}
+
+
+	public ObservacaoArmazenamentoRepository(EntityManager manager){
+		this.manager = manager;
+	}
+	
+	public void salvarObservacao(ObservacaoArmazenamento observacao) {
+		manager.getTransaction().begin();
+	    try {
+	    	if (observacao.getId() == null) {
+				manager.persist(observacao);
+			}else{
+				manager.merge(observacao);
+			}
+	        
+	    	manager.getTransaction().commit();
+		} catch (Exception e) {
+			manager.getTransaction().rollback();
+			e.printStackTrace();
+		}		
+	}
+	
+}

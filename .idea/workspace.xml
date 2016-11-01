@@ -1,0 +1,1816 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="ws_ipapp:war" />
+    </artifacts-to-build>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="b58904b2-883f-4998-9c12-0a60682ccfb0" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/br/com/speedy/wsipapp/repository/PeixeRepository.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/ws_ipapp/WEB-INF/classes/META-INF/beans.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/ws_ipapp/WEB-INF/classes/br/com/speedy/wsipapp/model/AbstractEntity.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/ws_ipapp/WEB-INF/lib/jersey-server-2.16.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/ws_ipapp/WEB-INF/classes/br/com/speedy/wsipapp/repository/PeixeRepository.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/ws_ipapp/WEB-INF/classes/br/com/speedy/wsipapp/util/FiltroUtil.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/br/com/speedy/wsipapp/rn" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/ws_ipapp/WEB-INF/classes/br" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/br/com/speedy/wsipapp/repository/BarcoRepository.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/ws_ipapp/WEB-INF/classes/br/com/speedy/wsipapp/repository/LoteRepository.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/br/com/speedy/wsipapp/MyResourceLogin.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/br/com/speedy/wsipapp/model/UltimoLogin.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/ws_ipapp/WEB-INF/lib/jackson-annotations-2.3.2.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/META-INF/persistence.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/br/com/speedy/wsipapp/enumerated/StatusCompra.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/ws_ipapp/WEB-INF/classes/br/com/speedy/wsipapp/repository" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/ws_ipapp/WEB-INF/lib/xml-apis-1.0.b2.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/META-INF/MANIFEST.MF" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/br/com/speedy/wsipapp/model/Barco.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/ws_ipapp/WEB-INF/classes/br/com/speedy/wsipapp/model/Barco.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/br/com/speedy/wsipapp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/br/com/speedy/wsipapp/util/Filtro.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/br/com/speedy/wsipapp/util/PeixeDisponivel.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/ws_ipapp/WEB-INF/classes/br/com/speedy/wsipapp/repository/PosicaoCamaraRepository.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/ws_ipapp/WEB-INF/lib/jboss-logging-3.1.3.GA.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/ws_ipapp/WEB-INF/lib/weld-servlet-2.0.4.Final.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/ws_ipapp/WEB-INF/classes/br/com/speedy/wsipapp/repository/TipoPeixeRepository.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/br/com/speedy/wsipapp/model/Armazenamento.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/ws_ipapp/WEB-INF/classes/br/com/speedy/wsipapp/model/Embalagem.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/br/com/speedy/wsipapp/model/ProdutoProcessado.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/br/com/speedy/wsipapp/model/ObservacaoArmazenamento.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/br/com/speedy/wsipapp/repository/EmbalagemRepository.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/br/com/speedy/wsipapp/model/Usuario.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/br" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/ws_ipapp/WEB-INF/classes/br/com/speedy/wsipapp/model/Usuario.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/br/com/speedy/wsipapp/repository/UsuarioRepository.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/br/com/speedy/wsipapp/model/Fornecedor.class" />
+      <change type="NEW" beforePath="" afterPath="B:\Google Drive\AD\workspace_intellij\ws_ipapp\target\classes\br\com\speedy\wsipapp\MyResource.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/br/com/speedy/wsipapp/repository/TipoPeixeRepository.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/br/com/speedy/wsipapp/model/Embalagem.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/META-INF" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/br/com/speedy/wsipapp/util/TransactionInterceptor.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/ws_ipapp/WEB-INF/classes/br/com/speedy/wsipapp/model/UltimoLogin.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/ws_ipapp/WEB-INF/classes/br/com/speedy/wsipapp/repository/ObservacaoRepository.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/ws_ipapp/WEB-INF/lib/jackson-databind-2.3.2.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/br/com/speedy/wsipapp/model/Arquivo.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/br/com/speedy/wsipapp/rn/PeixeRn.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/br/com/speedy/wsipapp/util/GeradorDeTabela.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/ws_ipapp/WEB-INF/lib" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/ws_ipapp/WEB-INF/classes/br/com/speedy/wsipapp/model/Peixe.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/br/com/speedy/wsipapp/repository/PosicaoCamaraRepository.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/ws_ipapp/WEB-INF/arquivos/tambaqui_13.2.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/br/com/speedy/wsipapp/repository/CompraRepository.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/ws_ipapp/WEB-INF/lib/jackson-core-2.3.2.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/br/com/speedy/wsipapp/model" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/ws_ipapp/WEB-INF/classes/br/com/speedy/wsipapp/repository/FornecedoresRepository.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/ws_ipapp/WEB-INF/classes/br/com/speedy/wsipapp/util/PeixeDisponivel.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/META-INF/beans.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/ws_ipapp/WEB-INF" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/ws_ipapp/WEB-INF/classes/br/com/speedy/wsipapp/model/Perfil.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/br/com/speedy/wsipapp/model/TamanhoPeixe.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/ws_ipapp/WEB-INF/classes/br/com/speedy/wsipapp/util/GeradorDeTabela.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/br/com/speedy/wsipapp/repository/RetiradaRepository.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/generated-sources" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/br/com/speedy/wsipapp/util/FiltroUtil.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/ws_ipapp/WEB-INF/classes/br/com/speedy/wsipapp/model/TipoPeixe.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/ws_ipapp/WEB-INF/lib/jersey-entity-filtering-2.16.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/ws_ipapp/WEB-INF/classes/br/com/speedy/wsipapp/util/Filtro.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/br/com" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/br/com/speedy/wsipapp/repository/TamanhoPeixeRepository.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/ws_ipapp/WEB-INF/classes/br/com/speedy/wsipapp/model/TamanhoPeixe.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/br/com/speedy/wsipapp/model/PosicaoCamara.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/ws_ipapp/WEB-INF/lib/aopalliance-repackaged-2.4.0-b09.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/br/com/speedy/wsipapp/model/Configuracoes.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/ws_ipapp/WEB-INF/classes/br/com/speedy/wsipapp/repository/UltimoLoginRepository.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/br/com/speedy/wsipapp/repository/FornecedoresRepository.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/br/com/speedy/wsipapp/repository/ArmazenamentoRepository.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/br/com/speedy/wsipapp/repository/ArquivoRepository.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/br/com/speedy/wsipapp/model/AbstractEntity.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/ws_ipapp/WEB-INF/lib/json-20141113.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/br/com/speedy/wsipapp/model/Camara.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/ws_ipapp/WEB-INF/lib/jersey-common-2.16.jar" />
+      <change type="NEW" beforePath="" afterPath="G:\Drive\AD\workspace_intellij\ws_ipapp\target\ws_ipapp.war" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/ws_ipapp/WEB-INF/classes/br/com/speedy/wsipapp/MyResourceLogin.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/ws_ipapp/WEB-INF/arquivos" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/ws_ipapp/WEB-INF/lib/validation-api-1.1.0.Final.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/br/com/speedy/wsipapp/enumerated/TipoArmazenamento.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/br/com/speedy/wsipapp/repository/CamaraRepository.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/ws_ipapp/WEB-INF/classes/br/com/speedy/wsipapp/model/ObservacaoArmazenamento.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/ws_ipapp/WEB-INF/lib/hk2-utils-2.4.0-b09.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/ws_ipapp/WEB-INF/lib/javassist-3.18.1-GA.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/ws_ipapp/WEB-INF/lib/osgi-resource-locator-1.0.1.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/br/com/speedy/wsipapp/enumerated" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/generated-sources/annotations" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/ws_ipapp/WEB-INF/classes/br/com/speedy/wsipapp/model/ProdutoProcessado.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/ws_ipapp/WEB-INF/lib/hibernate-jpa-2.1-api-1.0.0.Final.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/ws_ipapp/WEB-INF/classes/META-INF/persistence.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/ws_ipapp/WEB-INF/classes/br/com/speedy/wsipapp/repository/ConfiguracoesRepository.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/ws_ipapp/WEB-INF/classes/br/com/speedy/wsipapp/repository/BarcoRepository.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/ws_ipapp/WEB-INF/classes/br/com/speedy" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/ws_ipapp/index.jsp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/br/com/speedy/wsipapp/model/Observacao.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/br/com/speedy/wsipapp/repository" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/ws_ipapp/WEB-INF/classes/META-INF" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/ws_ipapp/WEB-INF/classes/br/com/speedy/wsipapp/repository/ArmazenamentoRepository.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/ws_ipapp/WEB-INF/lib/jersey-guava-2.16.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/br/com/speedy/wsipapp/model/Perfil.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/br/com/speedy/wsipapp/repository/LoteRepository.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/ws_ipapp/WEB-INF/lib/jboss-transaction-api_1.2_spec-1.0.0.Final.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/ws_ipapp/WEB-INF/classes/br/com" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/ws_ipapp/WEB-INF/classes/br/com/speedy/wsipapp/repository/EmbalagemRepository.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/ws_ipapp/WEB-INF/classes/br/com/speedy/wsipapp/enumerated" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/ws_ipapp/WEB-INF/lib/jandex-1.1.0.Final.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/ws_ipapp/WEB-INF/classes/br/com/speedy/wsipapp/repository/RetiradaRepository.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/ws_ipapp/WEB-INF/classes/br/com/speedy/wsipapp/model" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/ws_ipapp/META-INF" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/br/com/speedy/wsipapp/util/JpaUtil.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/ws_ipapp/WEB-INF/lib/jersey-container-servlet-core-2.16.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/ws_ipapp/WEB-INF/lib/jersey-media-jaxb-2.16.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/ws_ipapp/WEB-INF/lib/antlr-2.7.7.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/ws_ipapp/WEB-INF/classes/br/com/speedy/wsipapp/rn/PeixeRn.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/ws_ipapp/WEB-INF/classes/br/com/speedy/wsipapp/repository/CompraRepository.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/ws_ipapp/WEB-INF/lib/jackson-module-jaxb-annotations-2.3.2.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/br/com/speedy/wsipapp/repository/ConfiguracoesRepository.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/ws_ipapp/WEB-INF/classes/br/com/speedy/wsipapp/enumerated/StatusCompra.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/ws_ipapp/WEB-INF/classes/br/com/speedy/wsipapp/MyResource.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/ws_ipapp/WEB-INF/classes/br/com/speedy/wsipapp/model/Armazenamento.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/ws_ipapp/WEB-INF/classes/br/com/speedy/wsipapp/model/Configuracoes.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/br/com/speedy/wsipapp/enumerated/StatusArmazenamento.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/ws_ipapp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/ws_ipapp/WEB-INF/lib/jersey-media-json-jackson-2.16.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/ws_ipapp/WEB-INF/lib/javax.inject-2.4.0-b09.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/ws_ipapp/WEB-INF/classes/br/com/speedy/wsipapp/model/Fornecedor.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/ws_ipapp/WEB-INF/lib/postgresql-9.1-901-1.jdbc4.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/ws_ipapp/WEB-INF/classes/br/com/speedy/wsipapp/util/JpaUtil.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/ws_ipapp/WEB-INF/classes/br/com/speedy/wsipapp/enumerated/StatusArmazenamento.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/ws_ipapp/WEB-INF/lib/hk2-api-2.4.0-b09.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/br/com/speedy/wsipapp/util" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/ws_ipapp/WEB-INF/classes/br/com/speedy/wsipapp/util/EntityManagerProducer.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/ws_ipapp/WEB-INF/classes/br/com/speedy/wsipapp/model/Observacao.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/ws_ipapp/WEB-INF/classes/br/com/speedy/wsipapp/enumerated/TipoArmazenamento.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/ws_ipapp/WEB-INF/classes/br/com/speedy/wsipapp/model/Lote.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/ws_ipapp/WEB-INF/lib/javax.annotation-api-1.2.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/ws_ipapp/WEB-INF/lib/jersey-client-2.16.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/ws_ipapp/WEB-INF/lib/dom4j-1.6.1.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/ws_ipapp/WEB-INF/lib/jackson-jaxrs-json-provider-2.3.2.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/ws_ipapp/WEB-INF/classes/br/com/speedy/wsipapp/repository/CamaraRepository.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/ws_ipapp/WEB-INF/classes/br/com/speedy/wsipapp/repository/TamanhoPeixeRepository.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/br/com/speedy/wsipapp/model/Lote.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/ws_ipapp/WEB-INF/classes/br/com/speedy/wsipapp/model/PosicaoCamara.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/ws_ipapp/WEB-INF/lib/javax.servlet-api-3.0.1.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/br/com/speedy" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/ws_ipapp/WEB-INF/lib/javax.ws.rs-api-2.0.1.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/br/com/speedy/wsipapp/model/Compra.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/ws_ipapp/WEB-INF/classes/br/com/speedy/wsipapp/model/Compra.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/br/com/speedy/wsipapp/enumerated/TipoDestinoRetirada.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/ws_ipapp/arquivos" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/ws_ipapp/WEB-INF/classes" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/br/com/speedy/wsipapp/repository/UltimoLoginRepository.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/ws_ipapp/WEB-INF/lib/hibernate-core-4.3.6.Final.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/ws_ipapp/WEB-INF/lib/hibernate-commons-annotations-4.0.5.Final.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/br/com/speedy/wsipapp/enumerated/TipoCadastro.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/ws_ipapp/WEB-INF/lib/jackson-jaxrs-base-2.3.2.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/ws_ipapp/WEB-INF/lib/hibernate-entitymanager-4.3.6.Final.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/ws_ipapp/WEB-INF/classes/br/com/speedy/wsipapp/repository/ArquivoRepository.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/br/com/speedy/wsipapp/model/TipoPeixe.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/MANIFEST.MF" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/ws_ipapp/WEB-INF/classes/br/com/speedy/wsipapp/model/Camara.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/ws_ipapp/WEB-INF/classes/br/com/speedy/wsipapp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/br/com/speedy/wsipapp/repository/ObservacaoRepository.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/br/com/speedy/wsipapp/model/Retirada.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/ws_ipapp/WEB-INF/classes/br/com/speedy/wsipapp/model/Retirada.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/ws_ipapp/WEB-INF/classes/br/com/speedy/wsipapp/enumerated/TipoDestinoRetirada.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/ws_ipapp/WEB-INF/classes/br/com/speedy/wsipapp/util/TransactionInterceptor.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/ws_ipapp/WEB-INF/lib/jboss-logging-annotations-1.2.0.Beta1.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/br/com/speedy/wsipapp/util/EntityManagerProducer.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/ws_ipapp/WEB-INF/classes/br/com/speedy/wsipapp/rn" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/ws_ipapp/WEB-INF/classes/br/com/speedy/wsipapp/util" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/ws_ipapp/WEB-INF/classes/br/com/speedy/wsipapp/repository/UsuarioRepository.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/ws_ipapp/WEB-INF/lib/hk2-locator-2.4.0-b09.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/ws_ipapp/WEB-INF/classes/br/com/speedy/wsipapp/model/Arquivo.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/br/com/speedy/wsipapp/model/Peixe.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/ws_ipapp/META-INF/context.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/ws_ipapp/META-INF/MANIFEST.MF" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/ws_ipapp/WEB-INF/web.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/br/com/speedy/wsipapp/repository/PedidoRepository.java" afterPath="$PROJECT_DIR$/src/main/java/br/com/speedy/wsipapp/repository/PedidoRepository.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/br/com/speedy/wsipapp/repository/ArmazenamentoRepository.java" afterPath="$PROJECT_DIR$/src/main/java/br/com/speedy/wsipapp/repository/ArmazenamentoRepository.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/br/com/speedy/wsipapp/repository/LoteRepository.java" afterPath="$PROJECT_DIR$/src/main/java/br/com/speedy/wsipapp/repository/LoteRepository.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/br/com/speedy/wsipapp/model/Armazenamento.java" afterPath="$PROJECT_DIR$/src/main/java/br/com/speedy/wsipapp/model/Armazenamento.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/br/com/speedy/wsipapp/model/Retirada.java" afterPath="$PROJECT_DIR$/src/main/java/br/com/speedy/wsipapp/model/Retirada.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/br/com/speedy/wsipapp/MyResource.java" afterPath="$PROJECT_DIR$/src/main/java/br/com/speedy/wsipapp/MyResource.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/br/com/speedy/wsipapp/repository/PeixeRepository.java" afterPath="$PROJECT_DIR$/src/main/java/br/com/speedy/wsipapp/repository/PeixeRepository.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/br/com/speedy/wsipapp/enumerated/StatusCompra.java" afterPath="$PROJECT_DIR$/src/main/java/br/com/speedy/wsipapp/enumerated/StatusCompra.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/br/com/speedy/wsipapp/model/Peixe.java" afterPath="$PROJECT_DIR$/src/main/java/br/com/speedy/wsipapp/model/Peixe.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/br/com/speedy/wsipapp/enumerated/StatusArmazenamento.java" afterPath="$PROJECT_DIR$/src/main/java/br/com/speedy/wsipapp/enumerated/StatusArmazenamento.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/br/com/speedy/wsipapp/model/Lote.java" afterPath="$PROJECT_DIR$/src/main/java/br/com/speedy/wsipapp/model/Lote.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/br/com/speedy/wsipapp/repository/FornecedoresRepository.java" afterPath="$PROJECT_DIR$/src/main/java/br/com/speedy/wsipapp/repository/FornecedoresRepository.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/br/com/speedy/wsipapp/model/Romaneio.java" afterPath="$PROJECT_DIR$/src/main/java/br/com/speedy/wsipapp/model/Romaneio.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/br/com/speedy/wsipapp/repository/ProdutoRepository.java" afterPath="$PROJECT_DIR$/src/main/java/br/com/speedy/wsipapp/repository/ProdutoRepository.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/br/com/speedy/wsipapp/repository/TamanhoPeixeRepository.java" afterPath="$PROJECT_DIR$/src/main/java/br/com/speedy/wsipapp/repository/TamanhoPeixeRepository.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/br/com/speedy/wsipapp/model/Produto.java" afterPath="$PROJECT_DIR$/src/main/java/br/com/speedy/wsipapp/model/Produto.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/br/com/speedy/wsipapp/repository/CompraRepository.java" afterPath="$PROJECT_DIR$/src/main/java/br/com/speedy/wsipapp/repository/CompraRepository.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/br/com/speedy/wsipapp/repository/UsuarioRepository.java" afterPath="$PROJECT_DIR$/src/main/java/br/com/speedy/wsipapp/repository/UsuarioRepository.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/br/com/speedy/wsipapp/model/Pedido.java" afterPath="$PROJECT_DIR$/src/main/java/br/com/speedy/wsipapp/model/Pedido.java" />
+    </list>
+    <ignored path="ws_ipapp.iws" />
+    <ignored path=".idea/workspace.xml" />
+    <ignored path=".idea/dataSources.local.xml" />
+    <ignored path="$PROJECT_DIR$/target/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
+  <component name="Commander">
+    <leftPanel />
+    <rightPanel />
+    <splitter proportion="0.5" />
+  </component>
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="DaemonCodeAnalyzer">
+    <disable_hints />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FavoritesManager">
+    <favorites_list name="ws_ipapp" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file leaf-file-name="MyResource.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/br/com/speedy/wsipapp/MyResource.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.6971609" vertical-offset="0" max-vertical-offset="27268">
+              <caret line="44" column="0" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ProdutoRepository.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/br/com/speedy/wsipapp/repository/ProdutoRepository.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="306" max-vertical-offset="510">
+              <caret line="27" column="203" selection-start-line="27" selection-start-column="203" selection-end-line="27" selection-end-column="203" />
+              <folding>
+                <element signature="imports" expanded="false" />
+                <element signature="e#478#479#0" expanded="false" />
+                <element signature="e#507#508#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Produto.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/br/com/speedy/wsipapp/model/Produto.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2261">
+              <caret line="43" column="16" selection-start-line="43" selection-start-column="16" selection-end-line="43" selection-end-column="16" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Romaneio.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/br/com/speedy/wsipapp/model/Romaneio.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="1411" max-vertical-offset="1615">
+              <caret line="116" column="43" selection-start-line="116" selection-start-column="43" selection-end-line="116" selection-end-column="43" />
+              <folding>
+                <element signature="imports" expanded="false" />
+                <element signature="e#1047#1048#0" expanded="false" />
+                <element signature="e#1072#1073#0" expanded="false" />
+                <element signature="e#1106#1107#0" expanded="false" />
+                <element signature="e#1134#1135#0" expanded="false" />
+                <element signature="e#1165#1166#0" expanded="false" />
+                <element signature="e#1192#1193#0" expanded="false" />
+                <element signature="e#1232#1233#0" expanded="false" />
+                <element signature="e#1264#1265#0" expanded="false" />
+                <element signature="e#1306#1307#0" expanded="false" />
+                <element signature="e#1343#1344#0" expanded="false" />
+                <element signature="e#1404#1405#0" expanded="false" />
+                <element signature="e#1456#1457#0" expanded="false" />
+                <element signature="e#1491#1492#0" expanded="false" />
+                <element signature="e#1521#1522#0" expanded="false" />
+                <element signature="e#1568#1569#0" expanded="false" />
+                <element signature="e#1606#1607#0" expanded="false" />
+                <element signature="e#1645#1646#0" expanded="false" />
+                <element signature="e#1677#1678#0" expanded="false" />
+                <element signature="e#1730#1731#0" expanded="false" />
+                <element signature="e#1772#1773#0" expanded="false" />
+                <element signature="e#1805#1806#0" expanded="false" />
+                <element signature="e#1834#1835#0" expanded="false" />
+                <element signature="e#1878#1879#0" expanded="false" />
+                <element signature="e#1914#1915#0" expanded="false" />
+                <element signature="e#1961#1962#0" expanded="false" />
+                <element signature="e#1997#1998#0" expanded="false" />
+                <element signature="e#2062#2063#0" expanded="false" />
+                <element signature="e#2112#2113#0" expanded="false" />
+                <element signature="e#2147#2148#0" expanded="false" />
+                <element signature="e#2174#2175#0" expanded="false" />
+                <element signature="e#2218#2219#0" expanded="false" />
+                <element signature="e#2250#2251#0" expanded="false" />
+                <element signature="e#2392#2393#0" expanded="false" />
+                <element signature="e#2440#2441#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PedidoRepository.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/br/com/speedy/wsipapp/repository/PedidoRepository.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="430" max-vertical-offset="1258">
+              <caret line="41" column="44" selection-start-line="41" selection-start-column="44" selection-end-line="41" selection-end-column="44" />
+              <folding>
+                <element signature="imports" expanded="false" />
+                <element signature="e#449#450#0" expanded="false" />
+                <element signature="e#478#479#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CompraRepository.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/br/com/speedy/wsipapp/repository/CompraRepository.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="127" max-vertical-offset="2873">
+              <caret line="32" column="79" selection-start-line="32" selection-start-column="79" selection-end-line="32" selection-end-column="79" />
+              <folding>
+                <element signature="imports" expanded="false" />
+                <element signature="e#612#613#0" expanded="false" />
+                <element signature="e#641#642#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="HistoricoPedido.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/br/com/speedy/wsipapp/model/HistoricoPedido.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="162" max-vertical-offset="935">
+              <caret line="29" column="25" selection-start-line="29" selection-start-column="25" selection-end-line="29" selection-end-column="25" />
+              <folding>
+                <element signature="imports" expanded="false" />
+                <element signature="e#664#665#0" expanded="false" />
+                <element signature="e#692#693#0" expanded="false" />
+                <element signature="e#729#730#0" expanded="false" />
+                <element signature="e#762#763#0" expanded="false" />
+                <element signature="e#814#815#0" expanded="false" />
+                <element signature="e#858#859#0" expanded="false" />
+                <element signature="e#887#888#0" expanded="false" />
+                <element signature="e#914#915#0" expanded="false" />
+                <element signature="e#952#953#0" expanded="false" />
+                <element signature="e#984#985#0" expanded="false" />
+                <element signature="e#1017#1018#0" expanded="false" />
+                <element signature="e#1046#1047#0" expanded="false" />
+                <element signature="e#1090#1091#0" expanded="false" />
+                <element signature="e#1126#1127#0" expanded="false" />
+                <element signature="e#1161#1162#0" expanded="false" />
+                <element signature="e#1191#1192#0" expanded="false" />
+                <element signature="e#1238#1239#0" expanded="false" />
+                <element signature="e#1276#1277#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/main/java/br/com/speedy/wsipapp/repository/ArquivoRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/br/com/speedy/wsipapp/repository/RetiradaRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/br/com/speedy/wsipapp/model/ObservacaoArmazenamento.java" />
+        <option value="$PROJECT_DIR$/src/main/java/br/com/speedy/wsipapp/repository/ObservacaoArmazenamentoRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/br/com/speedy/wsipapp/util/ItemLote.java" />
+        <option value="$PROJECT_DIR$/src/main/java/br/com/speedy/wsipapp/util/ItemEstoque.java" />
+        <option value="$PROJECT_DIR$/src/main/java/br/com/speedy/wsipapp/model/Impressora.java" />
+        <option value="$PROJECT_DIR$/src/main/java/br/com/speedy/wsipapp/repository/ImpressoraRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/br/com/speedy/wsipapp/model/Impressao.java" />
+        <option value="$PROJECT_DIR$/src/main/java/br/com/speedy/wsipapp/enumerated/StatusPedido.java" />
+        <option value="$PROJECT_DIR$/src/main/java/br/com/speedy/wsipapp/model/Parcela.java" />
+        <option value="$PROJECT_DIR$/src/main/java/br/com/speedy/wsipapp/model/Fornecedor.java" />
+        <option value="$PROJECT_DIR$/src/main/java/br/com/speedy/wsipapp/model/Vendedor.java" />
+        <option value="$PROJECT_DIR$/src/main/java/br/com/speedy/wsipapp/model/Cliente.java" />
+        <option value="$PROJECT_DIR$/src/main/java/br/com/speedy/wsipapp/util/Filtro.java" />
+        <option value="$PROJECT_DIR$/src/main/java/br/com/speedy/wsipapp/util/FiltroUtil.java" />
+        <option value="$PROJECT_DIR$/src/main/java/br/com/speedy/wsipapp/repository/TransportadoraRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/br/com/speedy/wsipapp/model/Transportadora.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/br/com/speedy/wsipapp/util/TesteImpressao.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/br/com/speedy/wsipapp/util/ImpressaoUtil.java" />
+        <option value="$PROJECT_DIR$/src/main/java/br/com/speedy/wsipapp/listener/WS_Listener.java" />
+        <option value="$PROJECT_DIR$/src/main/java/br/com/speedy/wsipapp/repository/ImpressaoRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/br/com/speedy/wsipapp/model/PrecoDiferenciado.java" />
+        <option value="$PROJECT_DIR$/src/main/java/br/com/speedy/wsipapp/repository/PrecoDiferenciadoRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/br/com/speedy/wsipapp/model/Observacao.java" />
+        <option value="$PROJECT_DIR$/src/main/java/br/com/speedy/wsipapp/model/Compra.java" />
+        <option value="$PROJECT_DIR$/src/main/java/br/com/speedy/wsipapp/model/Lote.java" />
+        <option value="$PROJECT_DIR$/src/main/java/br/com/speedy/wsipapp/repository/LoteRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/br/com/speedy/wsipapp/repository/FornecedoresRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/br/com/speedy/wsipapp/repository/UsuarioRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/br/com/speedy/wsipapp/enumerated/StatusCompra.java" />
+        <option value="$PROJECT_DIR$/src/main/java/br/com/speedy/wsipapp/enumerated/TipoCadastro.java" />
+        <option value="$PROJECT_DIR$/src/main/java/br/com/speedy/wsipapp/repository/CompraRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/br/com/speedy/wsipapp/model/Peixe.java" />
+        <option value="$PROJECT_DIR$/src/main/java/br/com/speedy/wsipapp/repository/PeixeRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/br/com/speedy/wsipapp/repository/TamanhoPeixeRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/br/com/speedy/wsipapp/enumerated/StatusArmazenamento.java" />
+        <option value="$PROJECT_DIR$/src/main/java/br/com/speedy/wsipapp/model/Armazenamento.java" />
+        <option value="$PROJECT_DIR$/src/main/java/br/com/speedy/wsipapp/model/Retirada.java" />
+        <option value="$PROJECT_DIR$/src/main/java/br/com/speedy/wsipapp/repository/ArmazenamentoRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/br/com/speedy/wsipapp/model/ArmazenamentoRetiradaSalvo.java" />
+        <option value="$PROJECT_DIR$/src/main/java/br/com/speedy/wsipapp/repository/ArmazenamentoRetiradaSalvoRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/br/com/speedy/wsipapp/model/HistoricoPedido.java" />
+        <option value="$PROJECT_DIR$/src/main/java/br/com/speedy/wsipapp/model/Romaneio.java" />
+        <option value="$PROJECT_DIR$/src/main/java/br/com/speedy/wsipapp/repository/ProdutoRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/br/com/speedy/wsipapp/model/Produto.java" />
+        <option value="$PROJECT_DIR$/src/main/java/br/com/speedy/wsipapp/model/Pedido.java" />
+        <option value="$PROJECT_DIR$/src/main/java/br/com/speedy/wsipapp/MyResource.java" />
+        <option value="$PROJECT_DIR$/src/main/java/br/com/speedy/wsipapp/repository/PedidoRepository.java" />
+      </list>
+    </option>
+  </component>
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+  </component>
+  <component name="LogFilters">
+    <option name="FILTER_ERRORS" value="false" />
+    <option name="FILTER_WARNINGS" value="false" />
+    <option name="FILTER_INFO" value="true" />
+    <option name="FILTER_DEBUG" value="true" />
+    <option name="CUSTOM_FILTER" />
+  </component>
+  <component name="MavenProjectNavigator">
+    <treeState>
+      <PATH>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
+        </PATH_ELEMENT>
+      </PATH>
+    </treeState>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1552" />
+    <option name="height" value="840" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+    <OptionsSetting value="true" id="Add" />
+    <OptionsSetting value="true" id="Remove" />
+    <OptionsSetting value="true" id="Checkout" />
+    <OptionsSetting value="true" id="Update" />
+    <OptionsSetting value="true" id="Status" />
+    <OptionsSetting value="true" id="Edit" />
+    <OptionsSetting value="true" id="Undo Check Out" />
+    <OptionsSetting value="true" id="Get Latest Version" />
+    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="0" id="Remove" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+    </navigator>
+    <panes>
+      <pane id="PackagesPane" />
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ws_ipapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ws_ipapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ws_ipapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ws_ipapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ws_ipapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="target" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="GoToClass.includeLibraries" value="false" />
+    <property name="GoToClass.toSaveIncludeLibraries" value="false" />
+    <property name="GoToFile.includeJavaFiles" value="false" />
+    <property name="MemberChooser.sorted" value="false" />
+    <property name="MemberChooser.showClasses" value="true" />
+    <property name="MemberChooser.copyJavadoc" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../ws_pesquisa" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="project.structure.last.edited" value="SDKs" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="recentsLimit" value="5" />
+    <property name="restartRequiresConfirmation" value="true" />
+    <property name="Downloaded.Files.Path.Enabled" value="false" />
+    <property name="Repository.Attach.JavaDocs" value="false" />
+    <property name="Repository.Attach.Sources" value="false" />
+    <property name="FullScreen" value="false" />
+    <property name="options.lastSelected" value="preferences.applicationServers" />
+    <property name="options.splitter.main.proportions" value="0.3" />
+    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="dynamic.classpath" value="false" />
+    <property name="OverrideImplement.combined" value="true" />
+    <property name="OverrideImplement.overriding.sorted" value="false" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\henrique\Desktop\Ambiente de Desenvolvimento\workspace_intellij\ws_ipapp\src\main\java\br\com\speedy\wsipapp\model" />
+      <recent name="C:\Users\henrique\Desktop\Ambiente de Desenvolvimento\workspace_intellij\ws_ipapp\src\main\java\br\com\speedy\wsipapp\util" />
+      <recent name="C:\Users\henrique\Desktop\Ambiente de Desenvolvimento\workspace_intellij\ws_ipapp\src\main\webapp\META-INF" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="br.com.speedy.wsipapp.enumerated" />
+      <recent name="br.com.speedy.wsipapp.repository" />
+      <recent name="br.com.speedy.wsipapp.model" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Tomcat Server.ws_ipapp">
+    <configuration default="false" name="GeradorDeTabela" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="br.com.speedy.wsipapp.util.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="br.com.speedy.wsipapp.util.GeradorDeTabela" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="ws_ipapp" />
+      <envs />
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
+    <configuration default="false" name="TesteImpressao" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="br.com.speedy.wsipapp.util.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="br.com.speedy.wsipapp.util.TesteImpressao" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="ws_ipapp" />
+      <envs />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="" />
+        <option name="TRANSPORT" value="0" />
+        <option name="LOCAL" value="true" />
+      </RunnerSettings>
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Debug" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="true" type="Remote" factoryName="Remote">
+      <option name="USE_SOCKET_TRANSPORT" value="true" />
+      <option name="SERVER_MODE" value="false" />
+      <option name="SHMEM_ADDRESS" value="javadebug" />
+      <option name="HOST" value="localhost" />
+      <option name="PORT" value="5005" />
+      <method />
+    </configuration>
+    <configuration default="true" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" ALTERNATIVE_JRE_ENABLED="false">
+      <deployment />
+      <server-settings />
+      <predefined_log_file id="Tomcat" enabled="true" />
+      <predefined_log_file id="Tomcat Catalina" enabled="true" />
+      <predefined_log_file id="Tomcat Manager" enabled="false" />
+      <predefined_log_file id="Tomcat Host Manager" enabled="false" />
+      <predefined_log_file id="Tomcat Localhost Access" enabled="false" />
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <method />
+    </configuration>
+    <configuration default="true" type="AndroidRunConfigurationType" factoryName="Android Application">
+      <module name="" />
+      <option name="ACTIVITY_CLASS" value="" />
+      <option name="MODE" value="default_activity" />
+      <option name="DEPLOY" value="true" />
+      <option name="ARTIFACT_NAME" value="" />
+      <option name="TARGET_SELECTION_MODE" value="EMULATOR" />
+      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
+      <option name="PREFERRED_AVD" value="" />
+      <option name="USE_COMMAND_LINE" value="true" />
+      <option name="COMMAND_LINE" value="" />
+      <option name="WIPE_USER_DATA" value="false" />
+      <option name="DISABLE_BOOT_ANIMATION" value="false" />
+      <option name="NETWORK_SPEED" value="full" />
+      <option name="NETWORK_LATENCY" value="none" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
+      <option name="FILTER_LOGCAT_AUTOMATICALLY" value="true" />
+      <method />
+    </configuration>
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
+      <module name="" />
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
+      <option name="PROGRAM_PARAMETERS" />
+      <method />
+    </configuration>
+    <configuration default="true" type="JarApplication" factoryName="JAR Application">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="TestNG" factoryName="TestNG">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="ANNOTATION_TYPE" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <envs />
+      <properties />
+      <listeners />
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <pass-parent-envs>true</pass-parent-envs>
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="FlexUnitRunConfigurationType" factoryName="FlexUnit" appDescriptorForEmulator="Android" class_name="" emulatorAdlOptions="" method_name="" package_name="" scope="Class">
+      <option name="BCName" value="" />
+      <option name="launcherParameters">
+        <LauncherParameters>
+          <option name="browser" value="a7bb68e0-33c0-4d6f-a81a-aac1fdb870c8" />
+          <option name="launcherType" value="OSDefault" />
+          <option name="newPlayerInstance" value="false" />
+          <option name="playerPath" value="FlashPlayerDebugger.exe" />
+        </LauncherParameters>
+      </option>
+      <option name="moduleName" value="" />
+      <option name="trusted" value="true" />
+      <method />
+    </configuration>
+    <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Tests">
+      <module name="" />
+      <option name="TESTING_TYPE" value="0" />
+      <option name="INSTRUMENTATION_RUNNER_CLASS" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TARGET_SELECTION_MODE" value="EMULATOR" />
+      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
+      <option name="PREFERRED_AVD" value="" />
+      <option name="USE_COMMAND_LINE" value="true" />
+      <option name="COMMAND_LINE" value="" />
+      <option name="WIPE_USER_DATA" value="false" />
+      <option name="DISABLE_BOOT_ANIMATION" value="false" />
+      <option name="NETWORK_SPEED" value="full" />
+      <option name="NETWORK_LATENCY" value="none" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
+      <option name="FILTER_LOGCAT_AUTOMATICALLY" value="true" />
+      <method />
+    </configuration>
+    <configuration default="true" type="FlashRunConfigurationType" factoryName="Flash App">
+      <option name="BCName" value="" />
+      <option name="IOSSimulatorSdkPath" value="" />
+      <option name="adlOptions" value="" />
+      <option name="airProgramParameters" value="" />
+      <option name="appDescriptorForEmulator" value="Android" />
+      <option name="debugTransport" value="USB" />
+      <option name="debuggerSdkRaw" value="BC SDK" />
+      <option name="emulator" value="NexusOne" />
+      <option name="emulatorAdlOptions" value="" />
+      <option name="fastPackaging" value="true" />
+      <option name="fullScreenHeight" value="0" />
+      <option name="fullScreenWidth" value="0" />
+      <option name="launchUrl" value="false" />
+      <option name="launcherParameters">
+        <LauncherParameters>
+          <option name="browser" value="a7bb68e0-33c0-4d6f-a81a-aac1fdb870c8" />
+          <option name="launcherType" value="OSDefault" />
+          <option name="newPlayerInstance" value="false" />
+          <option name="playerPath" value="FlashPlayerDebugger.exe" />
+        </LauncherParameters>
+      </option>
+      <option name="mobileRunTarget" value="Emulator" />
+      <option name="moduleName" value="" />
+      <option name="overriddenMainClass" value="" />
+      <option name="overriddenOutputFileName" value="" />
+      <option name="overrideMainClass" value="false" />
+      <option name="runTrusted" value="true" />
+      <option name="screenDpi" value="0" />
+      <option name="screenHeight" value="0" />
+      <option name="screenWidth" value="0" />
+      <option name="url" value="http://" />
+      <option name="usbDebugPort" value="7936" />
+      <method />
+    </configuration>
+    <configuration default="true" type="GradleRunConfiguration" factoryName="Gradle">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list />
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
+      <method />
+    </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method />
+    </configuration>
+    <configuration default="true" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="myFilePath" />
+      <option name="GLUE" />
+      <option name="myNameFilter" />
+      <option name="myGeneratedName" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="ws_ipapp" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 7.0.50" ALTERNATIVE_JRE_ENABLED="false" ALTERNATIVE_JRE_PATH="">
+      <option name="UPDATING_POLICY" value="restart-server" />
+      <deployment>
+        <artifact name="ws_ipapp:war">
+          <settings>
+            <option name="CONTEXT_PATH" value="/" />
+          </settings>
+        </artifact>
+      </deployment>
+      <server-settings>
+        <option name="BASE_DIRECTORY_NAME" value="Unnamed_ws_ipapp_2" />
+      </server-settings>
+      <predefined_log_file id="Tomcat" enabled="true" />
+      <predefined_log_file id="Tomcat Catalina" enabled="true" />
+      <predefined_log_file id="Tomcat Manager" enabled="false" />
+      <predefined_log_file id="Tomcat Host Manager" enabled="false" />
+      <predefined_log_file id="Tomcat Localhost Access" enabled="false" />
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <RunnerSettings RunnerId="Cover" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="61133" />
+        <option name="TRANSPORT" value="0" />
+        <option name="LOCAL" value="true" />
+      </RunnerSettings>
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method>
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="ws_ipapp:war" />
+        </option>
+      </method>
+    </configuration>
+    <list size="3">
+      <item index="0" class="java.lang.String" itemvalue="Application.GeradorDeTabela" />
+      <item index="1" class="java.lang.String" itemvalue="Application.TesteImpressao" />
+      <item index="2" class="java.lang.String" itemvalue="Tomcat Server.ws_ipapp" />
+    </list>
+    <recent_temporary>
+      <list size="2">
+        <item index="0" class="java.lang.String" itemvalue="Application.TesteImpressao" />
+        <item index="1" class="java.lang.String" itemvalue="Application.GeradorDeTabela" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="SvnConfiguration" cleanupOnStartRun="true">
+    <configuration>C:\Users\Henrique.pc-henrique\AppData\Roaming\Subversion</configuration>
+    <supportedVersion>125</supportedVersion>
+  </component>
+  <component name="SvnFileUrlMappingImpl">
+    <option name="myMappingRoots">
+      <list>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="B:\Google Drive\AD\workspace_intellij\ws_ipapp" />
+          <option name="myCopyRoot" value="B:\Google Drive\AD\workspace_intellij\ws_ipapp" />
+        </SvnCopyRootSimple>
+      </list>
+    </option>
+    <option name="myMoreRealMappingRoots">
+      <list>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="B:\Google Drive\AD\workspace_intellij\ws_ipapp" />
+          <option name="myCopyRoot" value="B:\Google Drive\AD\workspace_intellij\ws_ipapp" />
+        </SvnCopyRootSimple>
+      </list>
+    </option>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b58904b2-883f-4998-9c12-0a60682ccfb0" name="Default" comment="" />
+      <created>1428435937733</created>
+      <option name="number" value="Default" />
+      <updated>1428435937733</updated>
+      <workItem from="1428435945918" duration="9943000" />
+      <workItem from="1428525227936" duration="5672000" />
+      <workItem from="1428541571935" duration="15711000" />
+      <workItem from="1428626734521" duration="3470000" />
+      <workItem from="1428709935499" duration="37741000" />
+      <workItem from="1428953128902" duration="21592000" />
+      <workItem from="1429103929685" duration="1992000" />
+      <workItem from="1429125579456" duration="821000" />
+      <workItem from="1429216743194" duration="17800000" />
+      <workItem from="1429542864543" duration="12680000" />
+      <workItem from="1429630759068" duration="102000" />
+      <workItem from="1429638090439" duration="17380000" />
+      <workItem from="1429902258710" duration="6514000" />
+      <workItem from="1430132883182" duration="3287000" />
+      <workItem from="1430273807606" duration="23043000" />
+      <workItem from="1430498552978" duration="15114000" />
+      <workItem from="1430892474245" duration="156000" />
+      <workItem from="1431276419515" duration="7423000" />
+      <workItem from="1431374118370" duration="6478000" />
+      <workItem from="1431607520565" duration="884000" />
+      <workItem from="1431637191425" duration="3871000" />
+      <workItem from="1432577871017" duration="2627000" />
+      <workItem from="1432913302896" duration="1299000" />
+      <workItem from="1433291235010" duration="1237000" />
+      <workItem from="1438813483184" duration="929000" />
+      <workItem from="1438834349327" duration="3211000" />
+      <workItem from="1438873683979" duration="116000" />
+      <workItem from="1438910179183" duration="16411000" />
+      <workItem from="1439489989106" duration="1001000" />
+      <workItem from="1439822300713" duration="2822000" />
+      <workItem from="1439944550097" duration="3733000" />
+      <workItem from="1439990712731" duration="6030000" />
+      <workItem from="1440170023209" duration="4375000" />
+      <workItem from="1440252057145" duration="6616000" />
+      <workItem from="1440439448444" duration="3174000" />
+      <workItem from="1440520723066" duration="2096000" />
+      <workItem from="1440682604120" duration="609000" />
+      <workItem from="1440686545945" duration="9612000" />
+      <workItem from="1440880536930" duration="77000" />
+      <workItem from="1441233216071" duration="974000" />
+      <workItem from="1441574633512" duration="2742000" />
+      <workItem from="1441827660495" duration="133000" />
+      <workItem from="1441845503643" duration="24688000" />
+      <workItem from="1442444044082" duration="8306000" />
+      <workItem from="1442931520337" duration="3235000" />
+      <workItem from="1443051189015" duration="24256000" />
+      <workItem from="1443539544282" duration="3956000" />
+      <workItem from="1443977681098" duration="40000" />
+      <workItem from="1444262039992" duration="11813000" />
+      <workItem from="1444742101017" duration="9248000" />
+      <workItem from="1445346705109" duration="3059000" />
+      <workItem from="1447939174031" duration="2201000" />
+      <workItem from="1450632129040" duration="295000" />
+      <workItem from="1452826559278" duration="903000" />
+      <workItem from="1454427904359" duration="3182000" />
+      <workItem from="1455887347698" duration="7402000" />
+      <workItem from="1464054961193" duration="985000" />
+      <workItem from="1464056234970" duration="1201000" />
+      <workItem from="1464228965034" duration="5886000" />
+      <workItem from="1464642853312" duration="5226000" />
+      <workItem from="1465321354017" duration="1992000" />
+      <workItem from="1466086650630" duration="615000" />
+      <workItem from="1466454258637" duration="616000" />
+      <workItem from="1466630555893" duration="624000" />
+      <workItem from="1467159791022" duration="4756000" />
+      <workItem from="1468515383104" duration="1783000" />
+      <workItem from="1468524758434" duration="1304000" />
+      <workItem from="1468854981919" duration="3525000" />
+      <workItem from="1470059773603" duration="5515000" />
+      <workItem from="1472521606231" duration="1019000" />
+      <workItem from="1472572130900" duration="4165000" />
+      <workItem from="1472615670003" duration="6903000" />
+      <workItem from="1473120003965" duration="1089000" />
+      <workItem from="1473949414043" duration="11086000" />
+      <workItem from="1475240879648" duration="1352000" />
+      <workItem from="1476810389106" duration="3631000" />
+    </task>
+    <task id="LOCAL-00001">
+      <created>1428540452064</created>
+      <option name="number" value="00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1428540452064</updated>
+    </task>
+    <task id="LOCAL-00002">
+      <created>1428760102270</created>
+      <option name="number" value="00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1428760102270</updated>
+    </task>
+    <task id="LOCAL-00003">
+      <created>1428796218759</created>
+      <option name="number" value="00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1428796218759</updated>
+    </task>
+    <task id="LOCAL-00004">
+      <created>1428947410384</created>
+      <option name="number" value="00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1428947410384</updated>
+    </task>
+    <task id="LOCAL-00005">
+      <created>1428949497383</created>
+      <option name="number" value="00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1428949497383</updated>
+    </task>
+    <task id="LOCAL-00006">
+      <created>1428958054518</created>
+      <option name="number" value="00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1428958054518</updated>
+    </task>
+    <task id="LOCAL-00007">
+      <created>1429025201876</created>
+      <option name="number" value="00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1429025201876</updated>
+    </task>
+    <task id="LOCAL-00008">
+      <created>1429285959693</created>
+      <option name="number" value="00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1429285959693</updated>
+    </task>
+    <task id="LOCAL-00009">
+      <created>1429543778878</created>
+      <option name="number" value="00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1429543778878</updated>
+    </task>
+    <task id="LOCAL-00010">
+      <created>1429638466202</created>
+      <option name="number" value="00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1429638466202</updated>
+    </task>
+    <task id="LOCAL-00011">
+      <created>1429816195171</created>
+      <option name="number" value="00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1429816195171</updated>
+    </task>
+    <task id="LOCAL-00012">
+      <created>1430767006660</created>
+      <option name="number" value="00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1430767006660</updated>
+    </task>
+    <task id="LOCAL-00013">
+      <created>1431607807139</created>
+      <option name="number" value="00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1431607807139</updated>
+    </task>
+    <task id="LOCAL-00014">
+      <created>1440521962064</created>
+      <option name="number" value="00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1440521962065</updated>
+    </task>
+    <task id="LOCAL-00015">
+      <created>1442363876442</created>
+      <option name="number" value="00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1442363876442</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="447355000" />
+  </component>
+  <component name="TodoView" selected-index="0">
+    <todo-panel id="selected-file">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="default-changelist">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="false" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1552" height="840" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.40013406" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="15" side_tool="true" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32844576" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32995737" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.49435028" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32768363" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32844576" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32768363" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32909605" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32909605" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32844576" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19504021" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
+      <window_info id="SVN Repositories" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.42543858" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="JSF" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32894737" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+    </layout>
+    <layout-to-restore>
+      <window_info id="SVN Repositories" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.42543858" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.40013406" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="15" side_tool="true" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32844576" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32995737" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="JSF" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.49560118" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32768363" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32844576" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32768363" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32909605" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32909605" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32844576" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19571045" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32894737" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
+    </layout-to-restore>
+  </component>
+  <component name="Vcs.Log.UiProperties">
+    <option name="RECENTLY_FILTERED_USER_GROUPS">
+      <collection />
+    </option>
+    <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+      <collection />
+    </option>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="myTodoPanelSettings">
+      <TodoPanelSettings />
+    </option>
+    <option name="LAST_COMMIT_MESSAGE" value="" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints-dialog>
+        <breakpoints-dialog />
+      </breakpoints-dialog>
+      <option name="time" value="28" />
+    </breakpoint-manager>
+    <watches-manager>
+      <configuration name="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory">
+        <watch expression="new BigDecimal(loteJson.getDouble(&quot;valor&quot;))" />
+        <watch expression="lote.getPesoLiquido()" />
+        <watch expression="jListas.getJSONObject(i).getJSONObject(&quot;embalagem&quot;)" />
+      </configuration>
+    </watches-manager>
+  </component>
+  <component name="antWorkspaceConfiguration">
+    <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
+    <option name="FILTER_TARGETS" value="false" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/main/java/br/com/speedy/wsipapp/enumerated/TipoPessoa.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.06402439" vertical-offset="0" max-vertical-offset="656">
+          <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/br/com/speedy/wsipapp/model/Barco.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="987">
+          <caret line="27" column="24" selection-start-line="27" selection-start-column="24" selection-end-line="27" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/br/com/speedy/wsipapp/model/Parcela.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="92" max-vertical-offset="1680">
+          <caret line="12" column="46" selection-start-line="12" selection-start-column="46" selection-end-line="12" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/br/com/speedy/wsipapp/model/Fornecedor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33231708" vertical-offset="2302" max-vertical-offset="3843">
+          <caret line="144" column="18" selection-start-line="144" selection-start-column="18" selection-end-line="144" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/br/com/speedy/wsipapp/model/Cliente.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4878049" vertical-offset="331" max-vertical-offset="3129">
+          <caret line="34" column="22" selection-start-line="34" selection-start-column="22" selection-end-line="34" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/br/com/speedy/wsipapp/model/Vendedor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.16768293" vertical-offset="604" max-vertical-offset="3402">
+          <caret line="34" column="4" selection-start-line="34" selection-start-column="4" selection-end-line="35" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/br/com/speedy/wsipapp/model/Arquivo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="63" max-vertical-offset="1932">
+          <caret line="17" column="4" selection-start-line="17" selection-start-column="4" selection-end-line="24" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/br/com/speedy/wsipapp/util/Filtro.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.8097015" vertical-offset="586" max-vertical-offset="1258">
+          <caret line="96" column="31" selection-start-line="96" selection-start-column="31" selection-end-line="96" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/br/com/speedy/wsipapp/enumerated/StatusPedido.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="374">
+          <caret line="5" column="27" selection-start-line="5" selection-start-column="27" selection-end-line="5" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/br/com/speedy/wsipapp/model/Transportadora.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="816" max-vertical-offset="2465">
+          <caret line="70" column="0" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/br/com/speedy/wsipapp/repository/TransportadoraRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.41491395" vertical-offset="4" max-vertical-offset="527">
+          <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1337" max-vertical-offset="1904">
+          <caret line="94" column="21" selection-start-line="94" selection-start-column="21" selection-end-line="94" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/br/com/speedy/wsipapp/repository/UltimoLoginRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="63" max-vertical-offset="816">
+          <caret line="26" column="23" selection-start-line="26" selection-start-column="23" selection-end-line="26" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/br/com/speedy/wsipapp/util/ImpressaoUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.75" vertical-offset="0" max-vertical-offset="1955">
+          <caret line="38" column="18" selection-start-line="38" selection-start-column="18" selection-end-line="38" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/br/com/speedy/wsipapp/model/Impressora.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.625" vertical-offset="51" max-vertical-offset="731">
+          <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/br/com/speedy/wsipapp/model/Impressao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6" vertical-offset="0" max-vertical-offset="680">
+          <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/br/com/speedy/wsipapp/util/TesteImpressao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.38382354" vertical-offset="181" max-vertical-offset="884">
+          <caret line="26" column="46" selection-start-line="26" selection-start-column="46" selection-end-line="26" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/br/com/speedy/wsipapp/repository/ImpressoraRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.425" vertical-offset="0" max-vertical-offset="680">
+          <caret line="24" column="4" selection-start-line="24" selection-start-column="4" selection-end-line="27" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/br/com/speedy/wsipapp/listener/WS_Listener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="629" max-vertical-offset="1309">
+          <caret line="64" column="24" selection-start-line="64" selection-start-column="24" selection-end-line="64" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/br/com/speedy/wsipapp/repository/ImpressaoRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.49067163" vertical-offset="196" max-vertical-offset="952">
+          <caret line="35" column="0" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/br/com/speedy/wsipapp/model/PrecoDiferenciado.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.63432837" vertical-offset="0" max-vertical-offset="1088">
+          <caret line="22" column="14" selection-start-line="22" selection-start-column="14" selection-end-line="22" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/br/com/speedy/wsipapp/util/FiltroUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.332696" vertical-offset="591" max-vertical-offset="1547">
+          <caret line="45" column="25" selection-start-line="45" selection-start-column="25" selection-end-line="45" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/br/com/speedy/wsipapp/model/ObservacaoArmazenamento.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.38059703" vertical-offset="357" max-vertical-offset="1292">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/br/com/speedy/wsipapp/repository/ObservacaoArmazenamentoRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5774379" vertical-offset="310" max-vertical-offset="833">
+          <caret line="44" column="33" selection-start-line="44" selection-start-column="33" selection-end-line="44" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/br/com/speedy/wsipapp/repository/LoteRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="561">
+          <caret line="28" column="210" selection-start-line="28" selection-start-column="210" selection-end-line="28" selection-end-column="210" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/br/com/speedy/wsipapp/model/Lote.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1020" max-vertical-offset="2465">
+          <caret line="80" column="27" selection-start-line="80" selection-start-column="27" selection-end-line="80" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/br/com/speedy/wsipapp/repository/FornecedoresRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5690141" vertical-offset="172" max-vertical-offset="527">
+          <caret line="29" column="5" selection-start-line="29" selection-start-column="5" selection-end-line="29" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/br/com/speedy/wsipapp/enumerated/StatusCompra.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="35" max-vertical-offset="442">
+          <caret line="9" column="54" selection-start-line="9" selection-start-column="54" selection-end-line="9" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/br/com/speedy/wsipapp/enumerated/TipoCadastro.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.325" vertical-offset="0" max-vertical-offset="680">
+          <caret line="15" column="5" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/br/com/speedy/wsipapp/repository/PeixeRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.73913044" vertical-offset="0" max-vertical-offset="667">
+          <caret line="38" column="5" selection-start-line="38" selection-start-column="5" selection-end-line="38" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/br/com/speedy/wsipapp/repository/TamanhoPeixeRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="493">
+          <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/br/com/speedy/wsipapp/repository/PrecoDiferenciadoRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.41590214" vertical-offset="0" max-vertical-offset="654">
+          <caret line="25" column="29" selection-start-line="25" selection-start-column="29" selection-end-line="25" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/br/com/speedy/wsipapp/repository/UsuarioRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.2293578" vertical-offset="292" max-vertical-offset="969">
+          <caret line="32" column="52" selection-start-line="32" selection-start-column="52" selection-end-line="32" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/br/com/speedy/wsipapp/repository/ArmazenamentoRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="2397" max-vertical-offset="3995">
+          <caret line="170" column="8" selection-start-line="170" selection-start-column="8" selection-end-line="172" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/br/com/speedy/wsipapp/repository/ArmazenamentoRetiradaSalvoRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="73" max-vertical-offset="714">
+          <caret line="22" column="34" selection-start-line="22" selection-start-column="34" selection-end-line="22" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.19318181" vertical-offset="0" max-vertical-offset="616">
+          <caret line="7" column="97" selection-start-line="7" selection-start-column="97" selection-end-line="7" selection-end-column="97" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/br/com/speedy/wsipapp/enumerated/StatusArmazenamento.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4678899" vertical-offset="0" max-vertical-offset="654">
+          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/br/com/speedy/wsipapp/model/Armazenamento.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.11620795" vertical-offset="1250" max-vertical-offset="2346">
+          <caret line="95" column="5" selection-start-line="95" selection-start-column="5" selection-end-line="95" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/br/com/speedy/wsipapp/model/Retirada.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.85779816" vertical-offset="561" max-vertical-offset="2244">
+          <caret line="72" column="32" selection-start-line="72" selection-start-column="32" selection-end-line="72" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/br/com/speedy/wsipapp/model/ArmazenamentoRetiradaSalvo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="952">
+          <caret line="10" column="39" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/br/com/speedy/wsipapp/model/Romaneio.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="859" max-vertical-offset="1649">
+          <caret line="116" column="43" selection-start-line="116" selection-start-column="43" selection-end-line="116" selection-end-column="43" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#1047#1048#0" expanded="false" />
+            <element signature="e#1072#1073#0" expanded="false" />
+            <element signature="e#1106#1107#0" expanded="false" />
+            <element signature="e#1134#1135#0" expanded="false" />
+            <element signature="e#1165#1166#0" expanded="false" />
+            <element signature="e#1192#1193#0" expanded="false" />
+            <element signature="e#1232#1233#0" expanded="false" />
+            <element signature="e#1264#1265#0" expanded="false" />
+            <element signature="e#1306#1307#0" expanded="false" />
+            <element signature="e#1343#1344#0" expanded="false" />
+            <element signature="e#1404#1405#0" expanded="false" />
+            <element signature="e#1456#1457#0" expanded="false" />
+            <element signature="e#1491#1492#0" expanded="false" />
+            <element signature="e#1521#1522#0" expanded="false" />
+            <element signature="e#1568#1569#0" expanded="false" />
+            <element signature="e#1606#1607#0" expanded="false" />
+            <element signature="e#1645#1646#0" expanded="false" />
+            <element signature="e#1677#1678#0" expanded="false" />
+            <element signature="e#1730#1731#0" expanded="false" />
+            <element signature="e#1772#1773#0" expanded="false" />
+            <element signature="e#1805#1806#0" expanded="false" />
+            <element signature="e#1834#1835#0" expanded="false" />
+            <element signature="e#1878#1879#0" expanded="false" />
+            <element signature="e#1914#1915#0" expanded="false" />
+            <element signature="e#1961#1962#0" expanded="false" />
+            <element signature="e#1997#1998#0" expanded="false" />
+            <element signature="e#2062#2063#0" expanded="false" />
+            <element signature="e#2112#2113#0" expanded="false" />
+            <element signature="e#2147#2148#0" expanded="false" />
+            <element signature="e#2174#2175#0" expanded="false" />
+            <element signature="e#2218#2219#0" expanded="false" />
+            <element signature="e#2250#2251#0" expanded="false" />
+            <element signature="e#2392#2393#0" expanded="false" />
+            <element signature="e#2440#2441#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/br/com/speedy/wsipapp/repository/ProdutoRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="510">
+          <caret line="27" column="203" selection-start-line="27" selection-start-column="203" selection-end-line="27" selection-end-column="203" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#478#479#0" expanded="false" />
+            <element signature="e#507#508#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/br/com/speedy/wsipapp/model/Compra.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="542" max-vertical-offset="2873">
+          <caret line="71" column="4" selection-start-line="71" selection-start-column="4" selection-end-line="72" selection-end-column="33" />
+          <folding>
+            <element signature="e#5167#5168#0" expanded="false" />
+            <element signature="e#5196#5197#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/br/com/speedy/wsipapp/model/Pedido.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.84087366" vertical-offset="2776" max-vertical-offset="3553">
+          <caret line="253" column="32" selection-start-line="253" selection-start-column="32" selection-end-line="253" selection-end-column="32" />
+          <folding>
+            <element signature="e#6698#6699#0" expanded="false" />
+            <element signature="e#6746#6747#0" expanded="false" />
+            <element signature="e#6788#6789#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/br/com/speedy/wsipapp/model/Observacao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1224">
+          <caret line="13" column="47" selection-start-line="13" selection-start-column="24" selection-end-line="13" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/br/com/speedy/wsipapp/model/HistoricoPedido.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="162" max-vertical-offset="935">
+          <caret line="29" column="25" selection-start-line="29" selection-start-column="25" selection-end-line="29" selection-end-column="25" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#664#665#0" expanded="false" />
+            <element signature="e#692#693#0" expanded="false" />
+            <element signature="e#729#730#0" expanded="false" />
+            <element signature="e#762#763#0" expanded="false" />
+            <element signature="e#814#815#0" expanded="false" />
+            <element signature="e#858#859#0" expanded="false" />
+            <element signature="e#887#888#0" expanded="false" />
+            <element signature="e#914#915#0" expanded="false" />
+            <element signature="e#952#953#0" expanded="false" />
+            <element signature="e#984#985#0" expanded="false" />
+            <element signature="e#1017#1018#0" expanded="false" />
+            <element signature="e#1046#1047#0" expanded="false" />
+            <element signature="e#1090#1091#0" expanded="false" />
+            <element signature="e#1126#1127#0" expanded="false" />
+            <element signature="e#1161#1162#0" expanded="false" />
+            <element signature="e#1191#1192#0" expanded="false" />
+            <element signature="e#1238#1239#0" expanded="false" />
+            <element signature="e#1276#1277#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/br/com/speedy/wsipapp/repository/PedidoRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="430" max-vertical-offset="1258">
+          <caret line="41" column="44" selection-start-line="41" selection-start-column="44" selection-end-line="41" selection-end-column="44" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#449#450#0" expanded="false" />
+            <element signature="e#478#479#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/br/com/speedy/wsipapp/repository/CompraRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="127" max-vertical-offset="2873">
+          <caret line="32" column="79" selection-start-line="32" selection-start-column="79" selection-end-line="32" selection-end-column="79" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#612#613#0" expanded="false" />
+            <element signature="e#641#642#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/br/com/speedy/wsipapp/model/Peixe.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6181818" vertical-offset="680" max-vertical-offset="1394">
+          <caret line="65" column="0" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
+          <folding>
+            <element signature="e#1417#1418#0" expanded="true" />
+            <element signature="e#1446#1447#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/br/com/speedy/wsipapp/model/Produto.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="515" max-vertical-offset="2329">
+          <caret line="43" column="16" selection-start-line="43" selection-start-column="16" selection-end-line="43" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/br/com/speedy/wsipapp/MyResource.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6971609" vertical-offset="0" max-vertical-offset="27268">
+          <caret line="44" column="0" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor>
+            <show-content>
+              <type id="artifact" />
+              <type id="jpa-descriptors" />
+              <type id="library" />
+              <type id="javaee-facet-resources" />
+            </show-content>
+          </artifact-editor>
+          <last-edited>ws_ipapp:war</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.5" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>Web</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>ws_ipapp</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>Maven: antlr:antlr:2.7.7</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>

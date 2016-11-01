@@ -1,0 +1,32 @@
+package br.com.speedy.wsipapp.repository;
+
+
+import br.com.speedy.wsipapp.model.Barco;
+import br.com.speedy.wsipapp.model.Fornecedor;
+import br.com.speedy.wsipapp.model.Pedido;
+import br.com.speedy.wsipapp.util.Filtro;
+
+import javax.persistence.EntityManager;
+import javax.persistence.TypedQuery;
+import java.util.List;
+
+
+public class PedidoRepository {
+
+
+	private EntityManager manager;
+
+	public PedidoRepository(){}
+
+
+	public PedidoRepository(EntityManager manager){
+		this.manager = manager;
+	}
+
+
+	public List<Pedido> getPedidosPorDia(Filtro filtro) {
+		TypedQuery<Pedido> query = manager.createQuery("select new Pedido(p.id, p.data, p.valor, p.codigo, p.vendedor.id, p.vendodor.nome, p.cliente.id, p.cliente.nome, p.transportadora.id, p.transportadora.nome) from Pedido p where p.data = '" + filtro.getData() + "' order by p.id asc", Pedido.class);
+		return query.getResultList();
+	}
+	
+}

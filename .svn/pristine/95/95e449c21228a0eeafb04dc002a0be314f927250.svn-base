@@ -1,0 +1,32 @@
+package br.com.speedy.wsipapp.repository;
+
+import java.util.List;
+
+import javax.inject.Inject;
+import javax.persistence.EntityManager;
+import javax.persistence.TypedQuery;
+
+import br.com.speedy.wsipapp.model.Peixe;
+
+
+
+public class PeixeRepository {
+	
+	
+	private EntityManager manager;
+	
+	public PeixeRepository(){}
+	
+	
+	public PeixeRepository(EntityManager manager){
+		this.manager = manager;
+	}
+	
+	
+	public List<Peixe> todos() {
+		TypedQuery<Peixe> query = manager.createQuery("from Peixe p order by p.descricao", Peixe.class);
+		return query.getResultList();
+	}
+	
+
+}

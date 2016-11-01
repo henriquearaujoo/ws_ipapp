@@ -1,0 +1,165 @@
+package br.com.speedy.wsipapp.model;
+
+import br.com.speedy.wsipapp.enumerated.StatusPedido;
+
+import javax.persistence.*;
+import java.io.Serializable;
+import java.math.BigDecimal;
+import java.util.Date;
+import java.util.List;
+
+/**
+ * Created by henrique on 28/04/2015.
+ */
+@Entity
+@Table(name = "pedido")
+public class Pedido implements AbstractEntity{
+
+    /**
+     *
+     */
+    private static final long serialVersionUID = 1L;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(unique = true, nullable = false)
+    private Long id;
+
+    @Column
+    private Date data;
+
+    @Column
+    private BigDecimal valor;
+
+    @Column
+    private String codigo;
+
+    @Column
+    private Integer qtdeParcelas;
+
+    @Enumerated(EnumType.STRING)
+    private StatusPedido status;
+
+    @ManyToOne
+    private Vendedor vendedor;
+
+    @ManyToOne
+    private Cliente cliente;
+
+    @ManyToOne
+    private Transportadora transportadora;
+
+    @OneToMany(mappedBy="pedido", fetch=FetchType.LAZY)
+    private List<Produto> produtos;
+
+    @OneToMany(mappedBy="pedido", fetch=FetchType.LAZY)
+    private List<Parcela> parcelas;
+
+    public Pedido(){
+
+    }
+
+    public Pedido(Long id, Date data, BigDecimal valor, String codigo, Long idVendedor, String nomeVendedor, Long idCliente, String nomeCliente, Long idTransportadora, String nomeTransportadora){
+        this.id = id;
+        this.data = data;
+        this.valor = valor;
+        this.codigo = codigo;
+        this.vendedor = new Vendedor();
+        this.vendedor.setId(idVendedor);
+        this.vendedor.setNome(nomeVendedor);
+        this.cliente = new Cliente();
+        this.cliente.setId(idCliente);
+        this.cliente.setNome(nomeCliente);
+        this.transportadora = new Transportadora();
+        this.transportadora.setId(idTransportadora);
+        this.transportadora.setNome(nomeTransportadora);
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public BigDecimal getValor() {
+        return valor;
+    }
+
+    public void setValor(BigDecimal valor) {
+        this.valor = valor;
+    }
+
+    public String getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
+    }
+
+    public Vendedor getVendedor() {
+        return vendedor;
+    }
+
+    public void setVendedor(Vendedor vendedor) {
+        this.vendedor = vendedor;
+    }
+
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
+
+    public Transportadora getTransportadora() {
+        return transportadora;
+    }
+
+    public void setTransportadora(Transportadora transportadora) {
+        this.transportadora = transportadora;
+    }
+
+    public List<Produto> getProdutos() {
+        return produtos;
+    }
+
+    public void setProdutos(List<Produto> produtos) {
+        this.produtos = produtos;
+    }
+
+    public Date getData() {
+        return data;
+    }
+
+    public void setData(Date data) {
+        this.data = data;
+    }
+
+    public Integer getQtdeParcelas() {
+        return qtdeParcelas;
+    }
+
+    public void setQtdeParcelas(Integer qtdeParcelas) {
+        this.qtdeParcelas = qtdeParcelas;
+    }
+
+    public StatusPedido getStatus() {
+        return status;
+    }
+
+    public void setStatus(StatusPedido status) {
+        this.status = status;
+    }
+
+    public List<Parcela> getParcelas() {
+        return parcelas;
+    }
+
+    public void setParcelas(List<Parcela> parcelas) {
+        this.parcelas = parcelas;
+    }
+}

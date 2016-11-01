@@ -1,0 +1,63 @@
+package br.com.speedy.wsipapp.model;
+
+import javax.persistence.*;
+
+/**
+ * Created by henrique on 05/05/2015.
+ */
+@Entity
+@Table(name = "romaneio")
+public class Romaneio implements AbstractEntity{
+
+    /**
+     *
+     */
+    private static final long serialVersionUID = 1L;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(unique = true, nullable = false)
+    private Long id;
+
+    @Column
+    private String lote;
+
+    @Column
+    private Integer qtdeEmbalagens;
+
+    @ManyToOne
+    private Produto produto;
+
+    @Override
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getLote() {
+        return lote;
+    }
+
+    public void setLote(String lote) {
+        this.lote = lote;
+    }
+
+    public Integer getQtdeEmbalagens() {
+        return qtdeEmbalagens;
+    }
+
+    public void setQtdeEmbalagens(Integer qtdeEmbalagens) {
+        this.qtdeEmbalagens = qtdeEmbalagens;
+    }
+
+    public Produto getProduto() {
+        return produto;
+    }
+
+    public void setProduto(Produto produto) {
+        this.produto = produto;
+    }
+}

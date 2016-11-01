@@ -1,0 +1,85 @@
+package br.com.speedy.wsipapp.listener;
+
+import br.com.speedy.wsipapp.model.Impressao;
+import br.com.speedy.wsipapp.model.Impressora;
+import br.com.speedy.wsipapp.repository.ImpressaoRepository;
+import br.com.speedy.wsipapp.repository.ImpressoraRepository;
+import br.com.speedy.wsipapp.util.ImpressaoUtil;
+import br.com.speedy.wsipapp.util.JpaUtil;
+
+import javax.persistence.EntityManager;
+import javax.servlet.ServletContextEvent;
+import javax.servlet.ServletContextListener;
+import javax.servlet.annotation.WebListener;
+import java.util.List;
+
+/**
+ * Created by henrique on 28/04/2015.
+ */
+
+//@WebListener
+public class WS_Listener implements ServletContextListener{
+
+    private Boolean executandoServicoImpressao = true;
+
+    private EntityManager manager;
+
+    public void executarServicoImpressao(){
+
+        try{
+
+            ImpressoraRepository impressoraRepository = new ImpressoraRepository(manager);
+            ImpressaoRepository impressaoRepository = new ImpressaoRepository(manager);
+
+            List<Impressora> impressoras = impressoraRepository.getImpressoras();
+
+            if (impressoras != null && impressoras.size() > 0 && impressoras.get(0).getNome() != null && !impressoras.get(0).getNome().isEmpty()){
+
+                System.out.println("Impressora padrao: " + impressoras.get(0).getNome());
+
+                List<Impressao> impressoes = impressaoRepository.getImpressoes();
+
+                for (Impressao impressao : impressoes){
+                    new ImpressaoUtil(impressoras.get(0).getNome()).imprimir(impressao.getConteudo());
+                    impressaoRepository.deletarImpressao(impressao);
+                }
+            }
+
+        }catch (Exception e){
+            manager.close();
+            e.printStackTrace();
+        }
+    }
+
+    public void inicializarServicoImpressao(){
+
+        System.out.println("Inicializando serviço de impressão...");
+
+        manager = JpaUtil.getEntityManager();
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                while (executandoServicoImpressao){
+
+                    try{
+                        executarServicoImpressao();
+                        Thread.sleep(2000);
+                    }catch (Exception e){
+                        e.printStackTrace();
+                    }
+                }
+            }
+        }).start();
+    }
+
+    @Override
+    public void contextInitialized(ServletContextEvent servletContextEvent) {
+        //inicializarServicoImpressao();
+    }
+
+    @Override
+    public void contextDestroyed(ServletContextEvent servletContextEvent) {
+
+    }
+}

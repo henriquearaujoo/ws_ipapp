@@ -1,0 +1,1017 @@
+package br.com.speedy.wsipapp;
+
+import java.io.*;
+import java.math.BigDecimal;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+import javax.persistence.EntityManager;
+import javax.servlet.ServletContext;
+import javax.ws.rs.*;
+import javax.ws.rs.core.Context;
+import javax.ws.rs.core.MediaType;
+
+import br.com.speedy.wsipapp.enumerated.StatusArmazenamento;
+import br.com.speedy.wsipapp.model.*;
+import br.com.speedy.wsipapp.repository.*;
+import br.com.speedy.wsipapp.util.*;
+import org.jboss.weld.bean.builtin.ee.ServletContextBean;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import br.com.speedy.wsipapp.enumerated.StatusCompra;
+import br.com.speedy.wsipapp.enumerated.TipoDestinoRetirada;
+
+
+@Path("/myresource")
+public class MyResource {
+	
+	private Compra compra;
+	
+	private Observacao observacao;
+
+	private String urlApp = "http://192.168.1.109:8080/arquivos/";
+
+	@Context
+	private ServletContext servletContext;
+
+
+	public MyResource() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	@POST
+	@Produces(MediaType.APPLICATION_JSON)
+	@Path("/logar")
+	public String logar(String data) {
+
+		JSONObject jUsuario = new JSONObject();
+
+		EntityManager manager = JpaUtil.getEntityManager();
+
+		try{
+
+		JSONObject object = new JSONObject(data);
+		
+		String login = object.getString("login");
+		String senha = object.getString("senha");
+		String imei = object.getString("imei");
+		
+
+		UsuarioRepository usuarios = new UsuarioRepository(manager);
+
+		Usuario usuario = usuarios.getUsuario(login, senha);
+		
+
+		jUsuario.put("valido", usuario == null ? false : true);
+		if(usuario != null){
+			jUsuario.put("id", usuario.getId());
+			jUsuario.put("nome", usuario.getNome());
+
+			UltimoLoginRepository loginRepository = new UltimoLoginRepository(manager);
+			UltimoLogin ul = loginRepository.getUltimoLoginUsuario(usuario);
+			JSONObject jUL = new JSONObject();
+			jUL.put("valido", ul == null ? false : true);
+			if (ul != null) {
+				ul.setData(new Date());
+				jUL.put("id", ul.getId());
+				jUL.put("data", new SimpleDateFormat("hh:mm:ss dd/MM/yyyy").format(ul.getData()));
+				loginRepository.salvarUltimoLogin(ul);
+			}
+			jUsuario.put("ultimologin", jUL);
+		}
+
+		}catch (Exception e){
+			e.printStackTrace();
+		}finally {
+			manager.close();
+		}
+
+		return jUsuario.toString();
+	}
+
+	@POST
+	@Produces(MediaType.APPLICATION_JSON)
+	@Path("/salvarUsuario")
+	public String salvarUsuario(String dados){
+
+		JSONObject retorno = new JSONObject();
+
+		EntityManager manager = JpaUtil.getEntityManager();
+
+		try {
+			JSONObject object = new JSONObject(dados);
+
+			Usuario usuario = new Usuario();
+			usuario.setId(object.getLong("id"));
+			String senha = object.getString("senha");
+
+			UsuarioRepository uRepo = new UsuarioRepository(manager);
+
+			usuario = uRepo.getUsuarioPorId(usuario);
+
+			usuario.setSenha(senha);
+
+			uRepo.salvarUsuario(usuario);
+
+			UltimoLoginRepository loginRepository = new UltimoLoginRepository(manager);
+			UltimoLogin ultimoLogin = loginRepository.getUltimoLoginUsuario(usuario);
+			if (ultimoLogin == null)
+				ultimoLogin = new UltimoLogin();
+			ultimoLogin.setData(new Date());
+			ultimoLogin.setUsuario(usuario);
+
+			loginRepository.salvarUltimoLogin(ultimoLogin);
+
+			retorno.put("valido", true);
+		}catch (Exception e){
+			e.printStackTrace();
+			retorno.put("valido", false);
+		}finally {
+			manager.close();
+		}
+
+		return retorno.toString();
+	}
+	
+	@POST
+	@Produces(MediaType.APPLICATION_JSON)
+	@Path("/salvarCompra")
+	public Boolean salvarCompra(String data) {
+
+		EntityManager manager = JpaUtil.getEntityManager();
+
+		try {
+			JSONObject object = new JSONObject(data);
+			compra = new Compra();
+			compra = getCompra(object);	
+
+			CompraRepository compras = new CompraRepository(manager);
+			compras.salvarCompra(compra, observacao);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}finally {
+			manager.close();
+		}
+		
+		return true;
+	}
+	
+	
+	public Compra getCompra(JSONObject object){
+		
+		compra = new Compra();
+		if (object.has("id"))
+			compra.setId(object.getLong("id"));
+		try {
+			compra.setDataCompra(new SimpleDateFormat("dd/MM/yyyy hh:mm:ss").parse(object.getString("dataCompra")));
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		compra.setAutorizado(null);
+		compra.setCodigo(object.getString("codigo"));
+		compra.setPause(object.getBoolean("pause"));
+		compra.setStatus(object.getBoolean("status"));
+		compra.setLotes(new ArrayList<Lote>());
+		compra.setValorTotal(new BigDecimal(object.getDouble("valorTotal")));
+		compra.setStatusCompra(StatusCompra.ENVIADO);
+		
+		JSONObject jsonFornec = object.getJSONObject("fornecedor");
+		JSONObject jsonBarco = object.getJSONObject("barco");
+		
+		Fornecedor fornecedor = new Fornecedor();
+		fornecedor.setId(jsonFornec.getLong("id"));
+		
+		Barco barco = new Barco();
+		barco.setId(jsonBarco.getLong("id"));
+		
+		compra.setFornecedor(fornecedor);
+		compra.setBarco(barco);
+		JSONArray jsonArray = object.getJSONArray("lotes");
+		
+		for (int i = 0, tam = jsonArray.length(); i < tam ; i++) {
+			
+			Lote lote = new Lote();
+			Peixe p = new Peixe();
+			
+			JSONObject loteJson =  jsonArray.getJSONObject(i);
+			JSONObject peixeJson =  loteJson.getJSONObject("peixe");
+			p.setId(peixeJson.getLong("id"));
+			
+			if (loteJson.has("id"))
+				lote.setId(loteJson.getLong("id"));
+			lote.setPeixe(p);
+			lote.setCompra(new Compra());
+			lote.setCompra(compra);
+			lote.setFornecedor(new Fornecedor());
+			lote.setFornecedor(compra.getFornecedor());
+			lote.setPeso(new BigDecimal(loteJson.getDouble("peso")));
+			lote.setQtdCaixas(loteJson.getInt("qtdCaixas"));
+			lote.setValor(new BigDecimal(loteJson.getDouble("valor")));
+			lote.setValorUnitarioPeixe(new BigDecimal(loteJson.getDouble("valorUnitarioPeixe")));
+			lote.setSequencia(loteJson.getInt("sequencia"));
+			lote.setDescontokg(new BigDecimal(loteJson.getDouble("descontokg")));
+			lote.setPesoCacapa(new BigDecimal(loteJson.getDouble("pesoCacapa")));
+			lote.setAcrescimo(BigDecimal.ZERO);
+			lote.setDesconto(BigDecimal.ZERO);
+			
+			compra.getLotes().add(lote);
+		}
+		
+		if (!compra.getPause() && object.getString("observacao") != null && !object.getString("observacao").isEmpty()){
+			observacao = new Observacao();
+			observacao.setData(new Date());
+			observacao.setCompra(compra);
+			observacao.setObservacao(object.getString("observacao"));
+			Usuario usu = new Usuario();
+			usu.setId(object.getLong("idUsuarioCompra"));
+			observacao.setUsuario(usu);
+			compra.setObservacao(null);
+		}else{
+			compra.setObservacao(object.getString("observacao"));
+			observacao = null;
+		}
+		
+		return compra;
+	}
+	
+	@GET
+	@Produces(MediaType.APPLICATION_JSON)
+	@Path("/getComprasSalvas")
+	public List<Compra> getComprasSalvas() {
+		
+		EntityManager manager = JpaUtil.getEntityManager();
+		List<Compra> lista = new ArrayList<Compra>();
+
+		try{
+			CompraRepository compraR = new CompraRepository(manager);
+			lista = compraR.getComprasSalvas();
+		}catch (Exception e){
+			e.printStackTrace();
+		}finally {
+			manager.close();
+		}
+
+		return lista;
+	}
+	
+	@POST
+	@Produces(MediaType.APPLICATION_JSON)
+	@Path("/getLotesCompra")
+	public List<Lote> getLotesCompra(String idCompra) {
+		
+		EntityManager manager = JpaUtil.getEntityManager();
+		List<Lote> lista = new ArrayList<Lote>();
+
+		try{
+			LoteRepository lotes = new LoteRepository(manager);
+			lista = lotes.getLotesCompra(idCompra);
+		}catch (Exception e){
+			e.printStackTrace();
+		}finally {
+			manager.close();
+		}
+		
+		return lista;
+	}
+	
+	@GET
+	@Produces(MediaType.APPLICATION_JSON)
+	@Path("/getConfiguracoes")
+	public Configuracoes getConfiguracoes(){
+
+		EntityManager manager = JpaUtil.getEntityManager();
+		List<Configuracoes> list = new ArrayList<Configuracoes>();
+
+		try{
+			ConfiguracoesRepository repository = new ConfiguracoesRepository(manager);
+			list = repository.getConfiguracoes();
+		}catch (Exception e){
+			e.printStackTrace();
+		}finally {
+			manager.close();
+		}
+
+		return list.size() > 0 ? list.get(0) : null;
+	}
+
+	@POST
+	@Produces(MediaType.APPLICATION_JSON)
+	@Path("/getPeixesFiltro")
+	public List<Peixe> getPeixesFiltro(String dados){
+
+		EntityManager manager = JpaUtil.getEntityManager();
+		List<Peixe> lista = new ArrayList<Peixe>();
+
+		try{
+			PeixeRepository peixes = new PeixeRepository(manager);
+			Filtro filtro = FiltroUtil.getFiltroPeixe(dados);
+			lista = peixes.getPeixesFiltro(filtro);
+
+			for (Peixe peixe : lista){
+				peixe.setUrlFoto(getUrlFoto(manager, peixe));
+			}
+
+		}catch (Exception e){
+			e.printStackTrace();
+		}finally {
+			manager.close();
+		}
+
+		return lista;
+	}
+
+	public String getUrlFoto(EntityManager manager, Peixe peixe){
+
+		InputStream inputStream = null;
+		OutputStream outputStream = null;
+
+		String retorno = "";
+		try{
+
+			//ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
+			//HttpServletRequest request = (HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext().getRequest();
+			//String path = request.getSession().getServletContext().getRealPath( "/" );
+
+			String path = servletContext.getRealPath(File.separator);
+
+			ArquivoRepository arquivoRepository = new ArquivoRepository(manager);
+			List<Arquivo> arquivos = arquivoRepository.getArquivoPorPeixe(peixe);
+
+			if(arquivos != null && arquivos.size() > 0){
+				Arquivo arquivo = arquivos.get(0);
+
+				File foto = new File("C:" + File.separator + "temp" + File.separator + arquivo.getNome());
+				File destino = new File(path + "arquivos/" + arquivo.getNome());
+
+				inputStream = new FileInputStream(foto);
+				outputStream = new FileOutputStream(destino);
+
+				byte[] buffer = new byte[1024];
+
+				int length;
+				while ((length = inputStream.read(buffer)) > 0){
+					outputStream.write(buffer, 0, length);
+				}
+
+				retorno = urlApp + arquivo.getNome();
+			}
+
+		}catch (Exception e){
+			e.printStackTrace();
+			retorno = "";
+		}finally {
+			try {
+				if (outputStream != null) {
+					outputStream.close();
+				}
+				if (inputStream != null) {
+					inputStream.close();
+				}
+			}catch (Exception e){
+				e.printStackTrace();
+			}
+		}
+
+		return retorno;
+	}
+
+	@POST
+	@Produces(MediaType.APPLICATION_JSON)
+	@Path("/getFornecedoresFiltro")
+	public List<Fornecedor> getFornecedoresFiltro(String dados){
+
+		EntityManager manager = JpaUtil.getEntityManager();
+		List<Fornecedor> lista = new ArrayList<Fornecedor>();
+
+		try{
+			FornecedoresRepository fornecedores = new FornecedoresRepository(manager);
+			BarcoRepository barcoRepository = new BarcoRepository(manager);
+			Filtro filtro = FiltroUtil.getFiltroFornecedor(dados);
+			lista = fornecedores.getFornecedoresFiltro(filtro);
+
+			for (Fornecedor fornecedor : lista) {
+				fornecedor.setBarcos(barcoRepository.getBarcosPorFornecedor(fornecedor));
+			}
+		}catch (Exception e){
+			e.printStackTrace();
+		}finally {
+			manager.close();
+		}
+
+		return lista;
+	}
+
+	@GET
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Path("/getCamaras")
+	public String getCamaras(){
+		EntityManager manager = JpaUtil.getEntityManager();
+		JSONObject jRetorno = new JSONObject();
+
+		try{
+			CamaraRepository camaraRepository = new CamaraRepository(manager);
+			List<Camara> camaras = camaraRepository.getCamaras();
+
+			JSONArray jCamaras = new JSONArray();
+
+			for(Camara camara : camaras){
+				JSONObject jCamara = new JSONObject();
+				jCamara.put("id", camara.getId());
+				jCamara.put("descricao", camara.getDescricao());
+
+				jCamaras.put(jCamara);
+			}
+
+			jRetorno.put("camaras", jCamaras);
+		}catch (Exception e){
+			e.printStackTrace();
+		}finally {
+			manager.close();
+		}
+
+		return jRetorno.toString();
+	}
+
+	@GET
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Path("/getDadosArmazenamento")
+	public String getDadosArmazenamento(){
+
+		EntityManager manager = JpaUtil.getEntityManager();
+		JSONObject dadosArmazenamento = new JSONObject();
+
+		try{
+
+			CamaraRepository camaraRepository = new CamaraRepository(manager);
+			EmbalagemRepository embalagemRepository = new EmbalagemRepository(manager);
+			TamanhoPeixeRepository tamanhoPeixeRepository = new TamanhoPeixeRepository(manager);
+			TipoPeixeRepository tipoPeixeRepository = new TipoPeixeRepository(manager);
+
+
+			List<Camara> camaras = camaraRepository.getCamaras();
+			List<Embalagem> embalagems = embalagemRepository.getEmbalagens();
+			List<TamanhoPeixe> tamanhoPeixes = tamanhoPeixeRepository.getTamanhos();
+			List<TipoPeixe> tipoPeixes = tipoPeixeRepository.getTiposPeixe();
+
+			JSONArray jCamaras = new JSONArray();
+
+			for(Camara camara : camaras){
+				JSONObject jCamara = new JSONObject();
+				jCamara.put("id", camara.getId());
+				jCamara.put("descricao", camara.getDescricao());
+
+				jCamaras.put(jCamara);
+			}
+
+			JSONArray jEmbalagens = new JSONArray();
+
+			for(Embalagem embalagem : embalagems){
+				JSONObject jEmbalagem = new JSONObject();
+				jEmbalagem.put("id", embalagem.getId());
+				jEmbalagem.put("descricao", embalagem.getDescricao());
+
+				jEmbalagens.put(jEmbalagem);
+			}
+
+			JSONArray jTamanhos = new JSONArray();
+
+			for(TamanhoPeixe tamanhoPeixe : tamanhoPeixes){
+				JSONObject jTamanho = new JSONObject();
+				jTamanho.put("id", tamanhoPeixe.getId());
+				jTamanho.put("descricao", tamanhoPeixe.getDescricao());
+
+				jTamanhos.put(jTamanho);
+			}
+
+			JSONArray jTipos = new JSONArray();
+
+			for(TipoPeixe tipoPeixe : tipoPeixes){
+				JSONObject jTipo = new JSONObject();
+				jTipo.put("id", tipoPeixe.getId());
+				jTipo.put("descricao", tipoPeixe.getDescricao());
+
+				jTipos.put(jTipo);
+			}
+
+			dadosArmazenamento.put("camaras", jCamaras);
+			dadosArmazenamento.put("embalagens", jEmbalagens);
+			dadosArmazenamento.put("tamanhos", jTamanhos);
+			dadosArmazenamento.put("tipos", jTipos);
+
+			tipoPeixes = null;
+			embalagems = null;
+			tamanhoPeixes = null;
+			camaras = null;
+
+		}catch (Exception e){
+			e.printStackTrace();
+		}finally {
+			manager.close();
+		}
+
+		return dadosArmazenamento.toString();
+	}
+
+	@POST
+	@Produces(MediaType.APPLICATION_JSON)
+	@Path("/getPosicoesCamara")
+	public List<PosicaoCamara> getPosicoesCamara(String dados){
+
+		EntityManager manager = JpaUtil.getEntityManager();
+		List<PosicaoCamara> lista = new ArrayList<PosicaoCamara>();
+
+		try{
+			PosicaoCamaraRepository posicaoCamaraRepository = new PosicaoCamaraRepository(manager);
+			Filtro filtro = FiltroUtil.getFiltroId(dados);
+			lista = posicaoCamaraRepository.getPosicoesPorCamara(filtro);
+		}catch (Exception e){
+			e.printStackTrace();
+		}finally {
+			manager.close();
+		}
+
+		return lista;
+	}
+
+	@POST
+	@Produces(MediaType.APPLICATION_JSON)
+	@Path("/salvarArmazenamentosERetiradas")
+	public String salvarArmazenamentosERetiradas(String dados){
+
+		EntityManager manager = JpaUtil.getEntityManager();
+		JSONObject jRetorno = new JSONObject();
+
+		try{
+
+			JSONObject object = new JSONObject(dados);
+			JSONArray jListas = object.getJSONArray("armazenamentosERetiradas");
+
+			List<Armazenamento> armazenamentos = new ArrayList<Armazenamento>();
+			List<Retirada> retiradas = new ArrayList<Retirada>();
+
+			for (int i = 0; i < jListas.length(); i++) {
+
+				String tipo = jListas.getJSONObject(i).getString("tipo");
+
+				if (tipo.equals("Armazenar")){
+
+					Armazenamento armazenamento = new Armazenamento();
+					armazenamento.setId(jListas.getJSONObject(i).has("id") ? jListas.getJSONObject(i).getLong("id") : null);
+					armazenamento.setPeso(new BigDecimal(jListas.getJSONObject(i).getDouble("peso")));
+					armazenamento.setPesoEmbalagem(new BigDecimal(jListas.getJSONObject(i).getDouble("pesoEmbalagem")));
+					armazenamento.setQtdeEmbalagem(jListas.getJSONObject(i).getInt("qtdeEmbalagem"));
+					armazenamento.setData(new Date());
+					armazenamento.setStatus(StatusArmazenamento.ENVIADO);
+					armazenamento.setObservacao(jListas.getJSONObject(i).has("observacao") ? jListas.getJSONObject(i).getString("observacao") : null);
+
+					Usuario usuario = new Usuario();
+					usuario.setId(jListas.getJSONObject(i).getJSONObject("usuario").getLong("id"));
+					armazenamento.setUsuario(usuario);
+
+					Camara camara = new Camara();
+					camara.setId(jListas.getJSONObject(i).getJSONObject("camara").getLong("id"));
+					armazenamento.setCamara(camara);
+
+					Embalagem embalagem = new Embalagem();
+					embalagem.setId(jListas.getJSONObject(i).getJSONObject("embalagem").getLong("id"));
+					armazenamento.setEmbalagem(embalagem);
+
+					Peixe peixe = new Peixe();
+					peixe.setId(jListas.getJSONObject(i).getJSONObject("peixe").getLong("id"));
+					armazenamento.setPeixe(peixe);
+
+					PosicaoCamara posicaoCamara = new PosicaoCamara();
+					posicaoCamara.setId(jListas.getJSONObject(i).getJSONObject("posicaoCamara").getLong("id"));
+					armazenamento.setPosicaoCamara(posicaoCamara);
+
+					TamanhoPeixe tamanhoPeixe = new TamanhoPeixe();
+					tamanhoPeixe.setId(jListas.getJSONObject(i).getJSONObject("tamanhoPeixe").getLong("id"));
+					armazenamento.setTamanhoPeixe(tamanhoPeixe);
+
+					TipoPeixe tipoPeixe = new TipoPeixe();
+					tipoPeixe.setId(jListas.getJSONObject(i).getJSONObject("tipoPeixe").getLong("id"));
+					armazenamento.setTipoPeixe(tipoPeixe);
+
+					armazenamentos.add(armazenamento);
+				}else{
+					Retirada retirada = new Retirada();
+					retirada.setId(jListas.getJSONObject(i).has("id") ? jListas.getJSONObject(i).getLong("id") : null);
+					retirada.setPeso(new BigDecimal(jListas.getJSONObject(i).getDouble("peso")));
+					retirada.setQtdeEmbalagem(jListas.getJSONObject(i).getInt("qtdeEmbalagem"));
+					retirada.setDestino(TipoDestinoRetirada.valueOf(jListas.getJSONObject(i).getString("destino")));
+					retirada.setStatus(StatusArmazenamento.ENVIADO);
+					retirada.setData(new Date());
+					retirada.setObservacao(jListas.getJSONObject(i).has("observacao") ? jListas.getJSONObject(i).getString("observacao") : null);
+
+					Usuario usuario = new Usuario();
+					usuario.setId(jListas.getJSONObject(i).getJSONObject("usuario").getLong("id"));
+					retirada.setUsuario(usuario);
+
+					Peixe peixe = new Peixe();
+					peixe.setId(jListas.getJSONObject(i).getJSONObject("peixe").getLong("id"));
+					retirada.setPeixe(peixe);
+
+					Camara camara = new Camara();
+					camara.setId(jListas.getJSONObject(i).getJSONObject("camara").getLong("id"));
+					retirada.setCamara(camara);
+
+					PosicaoCamara posicaoCamara = new PosicaoCamara();
+					posicaoCamara.setId(jListas.getJSONObject(i).getJSONObject("posicaoCamara").getLong("id"));
+					retirada.setPosicaoCamara(posicaoCamara);
+
+					retiradas.add(retirada);
+				}
+			}
+
+			ArmazenamentoRepository repository = new ArmazenamentoRepository(manager);
+			repository.salvarAmazenamentosERetiradas(armazenamentos, retiradas);
+
+			jRetorno.put("valido", true);
+		}catch (Exception e){
+			e.printStackTrace();
+			jRetorno.put("valido", false);
+		}finally {
+			manager.close();
+		}
+
+		return jRetorno.toString();
+	}
+
+	@POST
+	@Produces(MediaType.APPLICATION_JSON)
+	@Path("/getNumInconsistencias")
+	public String getNumInconsistencias(String dados){
+		EntityManager manager = JpaUtil.getEntityManager();
+		JSONObject jRetorno = new JSONObject();
+
+		try{
+			ArmazenamentoRepository repository = new ArmazenamentoRepository(manager);
+			RetiradaRepository retiradaRepository = new RetiradaRepository(manager);
+			Filtro filtro = FiltroUtil.getFiltroId(dados);
+			Integer numA = repository.getNumInconsistenciasArmazenamentos(filtro);
+			Integer numI = retiradaRepository.getNumInconsistenciasRetiradas(filtro);
+
+			jRetorno.put("num", numA + numI);
+		}catch (Exception e){
+			e.printStackTrace();
+		}finally {
+			manager.close();
+		}
+
+		return jRetorno.toString();
+	}
+
+	@POST
+	@Produces(MediaType.APPLICATION_JSON)
+	@Path("/getInconsistenciasArmazenamentosERetiradas")
+	public String getInconsistenciasArmazenamentosERetiradas(String dados){
+
+		EntityManager manager = JpaUtil.getEntityManager();
+		JSONObject jRetorno = new JSONObject();
+		JSONArray jLista = new JSONArray();
+
+		try{
+			ArmazenamentoRepository repository = new ArmazenamentoRepository(manager);
+			RetiradaRepository retiradaRepository = new RetiradaRepository(manager);
+			Filtro filtro = FiltroUtil.getFiltroId(dados);
+			List<Armazenamento> armazenamentos = repository.getInconsistenciasArmazenamentos(filtro);
+			List<Retirada> retiradas = retiradaRepository.getInconsistenciasRetiradas(filtro);
+
+			for(Armazenamento armazenamento : armazenamentos){
+				JSONObject jItemResumo = new JSONObject();
+				jItemResumo.put("id", armazenamento.getId());
+				jItemResumo.put("tipo", "Armazenar");
+				jItemResumo.put("peso", armazenamento.getPeso());
+				jItemResumo.put("qtdeEmbalagem", armazenamento.getQtdeEmbalagem());
+				jItemResumo.put("pesoEmbalagem", armazenamento.getPesoEmbalagem() != null ? armazenamento.getPesoEmbalagem() : "0");
+
+				JSONObject jPeixe = new JSONObject();
+				jPeixe.put("id", armazenamento.getPeixe().getId());
+				jPeixe.put("descricao", armazenamento.getPeixe().getDescricao());
+
+				jItemResumo.put("peixe", jPeixe);
+
+				JSONObject jCamara = new JSONObject();
+				jCamara.put("id", armazenamento.getCamara().getId());
+				jCamara.put("descricao", armazenamento.getCamara().getDescricao());
+
+				jItemResumo.put("camara", jCamara);
+
+				JSONObject jPosicao = new JSONObject();
+				jPosicao.put("id", armazenamento.getPosicaoCamara().getId());
+				jPosicao.put("descricao", armazenamento.getPosicaoCamara().getDescricao());
+
+				jItemResumo.put("posicaoCamara", jPosicao);
+
+				JSONObject jEmbalagem = new JSONObject();
+				jEmbalagem.put("id", armazenamento.getEmbalagem().getId());
+				jEmbalagem.put("descricao", armazenamento.getEmbalagem().getDescricao());
+
+				jItemResumo.put("embalagem", jEmbalagem);
+
+				JSONObject jTipoPeixe = new JSONObject();
+				jTipoPeixe.put("id", armazenamento.getTipoPeixe().getId());
+				jTipoPeixe.put("descricao", armazenamento.getTipoPeixe().getDescricao());
+
+				jItemResumo.put("tipoPeixe", jTipoPeixe);
+
+				JSONObject jTamanho = new JSONObject();
+				jTamanho.put("id", armazenamento.getTamanhoPeixe().getId());
+				jTamanho.put("descricao", armazenamento.getTamanhoPeixe().getDescricao());
+
+				jItemResumo.put("tamanhoPeixe", jTamanho);
+
+				jLista.put(jItemResumo);
+		}
+
+			for(Retirada retirada : retiradas){
+				JSONObject jItemResumo = new JSONObject();
+				jItemResumo.put("id", retirada.getId());
+				jItemResumo.put("tipo", "Retirada");
+				jItemResumo.put("peso", retirada.getPeso());
+				jItemResumo.put("qtdeEmbalagem", retirada.getQtdeEmbalagem());
+
+				JSONObject jPeixe = new JSONObject();
+				jPeixe.put("id", retirada.getPeixe().getId());
+				jPeixe.put("descricao", retirada.getPeixe().getDescricao());
+
+				jItemResumo.put("peixe", jPeixe);
+
+				JSONObject jCamara = new JSONObject();
+				jCamara.put("id", retirada.getCamara().getId());
+				jCamara.put("descricao", retirada.getCamara().getDescricao());
+
+				jItemResumo.put("camara", jCamara);
+
+				JSONObject jPosicao = new JSONObject();
+				jPosicao.put("id", retirada.getPosicaoCamara().getId());
+				jPosicao.put("descricao", retirada.getPosicaoCamara().getDescricao());
+
+				jItemResumo.put("posicaoCamara", jPosicao);
+
+				jItemResumo.put("destino", retirada.getDestino().equals(TipoDestinoRetirada.PROCESSO) ? "Processo" : "Descarte");
+
+				jLista.put(jItemResumo);
+			}
+
+			jRetorno.put("inconsistencias", jLista);
+
+		}catch (Exception e){
+			e.printStackTrace();
+		}finally {
+			manager.close();
+		}
+
+		return jRetorno.toString();
+	}
+
+	@POST
+	@Produces(MediaType.APPLICATION_JSON)
+	@Path("/getObservacoesArmazenamento")
+	public String getObservacoesArmazenamento(String dados){
+
+		EntityManager manager = JpaUtil.getEntityManager();
+		JSONObject jRetorno = new JSONObject();
+		JSONArray jLista = new JSONArray();
+
+		try{
+			ObservacaoArmazenamentoRepository repository = new ObservacaoArmazenamentoRepository(manager);
+			Filtro filtro = FiltroUtil.getFiltroId(dados);
+			List<ObservacaoArmazenamento> list = repository.getObsArmazenamento(filtro);
+
+			for (ObservacaoArmazenamento obs : list){
+				JSONObject object = new JSONObject();
+				object.put("data", new SimpleDateFormat("hh:mm:ss dd/MM/yyyy").format(obs.getData()));
+				object.put("usuario", obs.getUsuario().getNome());
+				object.put("observacao", obs.getObservacao());
+
+				jLista.put(object);
+			}
+
+			jRetorno.put("observacoes", jLista);
+		}catch (Exception e){
+
+		}finally {
+			manager.close();
+		}
+
+		return jRetorno.toString();
+	}
+
+	@POST
+	@Produces(MediaType.APPLICATION_JSON)
+	@Path("/getObservacoesRetirada")
+	public String getObservacoesRetirada(String dados){
+
+		EntityManager manager = JpaUtil.getEntityManager();
+		JSONObject jRetorno = new JSONObject();
+		JSONArray jLista = new JSONArray();
+
+		try{
+
+			ObservacaoArmazenamentoRepository repository = new ObservacaoArmazenamentoRepository(manager);
+			Filtro filtro = FiltroUtil.getFiltroId(dados);
+			List<ObservacaoArmazenamento> list = repository.getObsRetirada(filtro);
+
+			for (ObservacaoArmazenamento obs : list){
+				JSONObject object = new JSONObject();
+				object.put("data", new SimpleDateFormat("hh:mm:ss dd/MM/yyyy").format(obs.getData()));
+				object.put("usuario", obs.getUsuario().getNome());
+				object.put("observacao", obs.getObservacao());
+
+				jLista.put(object);
+			}
+
+			jRetorno.put("observacoes", jLista);
+
+		}catch (Exception e){
+			e.printStackTrace();
+		}finally {
+			manager.close();
+		}
+
+		return jRetorno.toString();
+	}
+
+	@POST
+	@Produces(MediaType.APPLICATION_JSON)
+	@Path("/getEstoquePorCamara")
+	public String getEstoquePorCamara(String dados){
+		EntityManager manager = JpaUtil.getEntityManager();
+		JSONObject jRetorno = new JSONObject();
+		JSONArray jLista = new JSONArray();
+		try {
+			ArmazenamentoRepository repository = new ArmazenamentoRepository(manager);
+			Filtro filtro = FiltroUtil.getFiltroId(dados);
+			List<ItemEstoque> itens = repository.getEstoquePorCamara(filtro);
+
+			for(ItemEstoque itemEstoque : itens){
+				JSONObject jArm = new JSONObject();
+				jArm.put("peixe", itemEstoque.getPeixe());
+				jArm.put("tipo", itemEstoque.getTipo());
+				jArm.put("peso", itemEstoque.getPeso().toString());
+				jArm.put("pesoRetirada", itemEstoque.getPesoRetirada().toString());
+
+				jLista.put(jArm);
+			}
+
+			jRetorno.put("estoques", jLista);
+		}catch (Exception e){
+			e.printStackTrace();
+		}finally {
+			manager.close();
+		}
+
+		return jRetorno.toString();
+	}
+
+
+	/*
+
+	@GET
+	@Produces(MediaType.APPLICATION_JSON)
+	@Path("/getFornecedores")
+	public List<Fornecedor> getFornecedores() {
+
+		EntityManager manager = JpaUtil.getEntityManager();
+		FornecedoresRepository fornecedores = new FornecedoresRepository(manager);
+		BarcoRepository barcoRepository = new BarcoRepository(manager);
+		List<Fornecedor> lista = fornecedores.todos();
+
+		for (Fornecedor fornecedor : lista) {
+			fornecedor.setBarcos(barcoRepository.getBarcosPorFornecedor(fornecedor));
+		}
+
+		return lista;
+	}
+
+	@GET
+	@Produces(MediaType.APPLICATION_JSON)
+	@Path("/getPeixes")
+	public List<Peixe> getTodos() {
+		// PeixeRn peixe = new PeixeRn();
+		EntityManager manager = JpaUtil.getEntityManager();
+		PeixeRepository peixes = new PeixeRepository(manager);
+		List<Peixe> lista = peixes.todos();
+		return lista;
+	}
+
+	@POST
+	@Produces(MediaType.APPLICATION_JSON)
+	@Path("/getPeixesDisponiveis")
+	public List<PeixeDisponivel> getPeixesDisponiveis(String dados){
+		EntityManager manager = JpaUtil.getEntityManager();
+		ArmazenamentoRepository repository = new ArmazenamentoRepository(manager);
+		Filtro filtro = FiltroUtil.getFiltroPeixesDisponivel(dados);
+		return repository.getPeixesDisponiveis(filtro);
+	}
+	
+	@POST
+	@Produces(MediaType.APPLICATION_JSON)
+	@Path("/getPeixesArmazenados")
+	public List<PeixeDisponivel> getPeixesArmazenados(String dados){
+		EntityManager manager = JpaUtil.getEntityManager();
+		ArmazenamentoRepository repository = new ArmazenamentoRepository(manager);
+		Filtro filtro = FiltroUtil.getArmazenamentos(dados);
+		return repository.getPeixesArmazenados(filtro);
+	}
+
+	@POST
+	@Produces(MediaType.APPLICATION_JSON)
+	@Path("/salvarArmazenamento")
+	public Boolean salvarArmazenamento(String dados){
+		try {
+			EntityManager manager = JpaUtil.getEntityManager();
+			Armazenamento armazenamento = getArmazenamento(dados);
+			ArmazenamentoRepository repository = new ArmazenamentoRepository(manager);
+			repository.salvarAmazenamento(armazenamento);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+		
+		return true;
+		
+	}
+	
+	@POST
+	@Produces(MediaType.APPLICATION_JSON)
+	@Path("/salvarRetirada")
+	public Boolean salvarRetirada(String dados){
+		try {
+			EntityManager manager = JpaUtil.getEntityManager();
+			Retirada retirada = getRetirada(dados);
+			RetiradaRepository repository = new RetiradaRepository(manager);
+			repository.salvarRetirada(retirada);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+		
+		return true;
+		
+	}
+
+	
+	public Retirada getRetirada(String dados){
+		
+		Retirada retirada = new Retirada();
+		
+		JSONObject object = new JSONObject(dados);
+		retirada.setPeso(new BigDecimal(object.getDouble("peso")));
+		retirada.setDestino(TipoDestinoRetirada.valueOf(object.getString("destino")));
+		
+		Armazenamento armazenamento = new Armazenamento();
+		JSONObject jArm = object.getJSONObject("peixe");
+		armazenamento.setId(jArm.getLong("id"));
+		
+		Peixe peixe = new Peixe();
+		JSONObject jPeixe = object.getJSONObject("peixe");
+		peixe.setId(jPeixe.getLong("id"));
+		
+		Usuario usuario = new Usuario();
+		JSONObject jUsuario = object.getJSONObject("usuario");
+		usuario.setId(jUsuario.getLong("id"));
+		
+
+		retirada.setPeixe(peixe);
+
+		
+		return retirada;
+	}
+	
+	public Armazenamento getArmazenamento(String dados){
+		
+		Armazenamento armazenamento = new Armazenamento();
+		
+		JSONObject object = new JSONObject(dados);
+
+		armazenamento.setPeso(new BigDecimal(object.getDouble("peso")));
+		
+		Peixe peixe = new Peixe();
+		JSONObject jPeixe = object.getJSONObject("peixe");
+		peixe.setId(jPeixe.getLong("id"));
+		
+		Usuario usuario = new Usuario();
+		JSONObject jUsuario = object.getJSONObject("usuario");
+		usuario.setId(jUsuario.getLong("id"));
+		
+		armazenamento.setPeixe(peixe);
+
+		
+		return armazenamento;
+	}
+	*/
+
+}

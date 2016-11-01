@@ -1,0 +1,37 @@
+package br.com.speedy.wsipapp.util;
+
+import org.json.JSONObject;
+
+public class FiltroUtil {
+	
+	public static Filtro getFiltroPeixesDisponivel(String dados){
+		JSONObject object = new JSONObject(dados);
+		Filtro filtro = new Filtro();
+		
+		filtro.setDescricao(object.has("descricao") && object.getString("descricao") != null ? object.getString("descricao") : null);
+		filtro.setCodigo(object.has("codigo") && object.getString("codigo") != null ? object.getString("codigo") : null);
+		
+		return filtro;
+	}
+	
+	public static Filtro getArmazenamentos(String dados){
+		JSONObject object = new JSONObject(dados);
+		Filtro filtro = new Filtro();
+		
+		filtro.setDescricao(object.has("descricao") && object.getString("descricao") != null ? object.getString("descricao") : null);
+		filtro.setCamara(object.has("camara") && object.getString("camara") != null ? object.getString("camara") : null);
+		filtro.setCurral(object.has("curral") && object.getString("curral") != null ? object.getString("curral") : null);
+		
+		return filtro;
+	}
+
+	public static Filtro getFiltroPeixe(String dados){
+		JSONObject object = new JSONObject(dados);
+		Filtro filtro = new Filtro();
+
+		filtro.setDescricao(object.has("descricao") && object.getString("descricao") != null ? object.getString("descricao") : null);
+
+		return filtro;
+	}
+
+}

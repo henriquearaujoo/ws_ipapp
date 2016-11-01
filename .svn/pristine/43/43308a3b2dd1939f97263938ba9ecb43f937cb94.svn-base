@@ -1,0 +1,122 @@
+package br.com.speedy.wsipapp.util;
+
+import javax.print.*;
+import javax.print.attribute.*;
+import javax.print.attribute.standard.Copies;
+import javax.print.event.PrintJobAdapter;
+import javax.print.event.PrintJobEvent;
+
+import java.io.ByteArrayInputStream;  
+import java.io.IOException;
+import java.io.InputStream;  
+  
+// Essa classe � a responsavel pela impressao. Ela detecta a impressora  
+// instalada, recebe o texto e o imprime.  
+public class ImpressaoUtil {  
+  
+    // variavel estatica porque ser� utilizada por inumeras threads  
+    private static PrintService impressora;
+    
+    public ImpressaoUtil(String impressora) {
+  
+        detectaImpressoras(impressora);
+  
+    }  
+  
+    // O metodo verifica se existe impressora conectada e a  
+    // define como padrao.  
+    public void detectaImpressoras(String imp) {
+
+		impressora = null;
+  
+        try {  
+  
+        	DocFlavor flavor = DocFlavor.SERVICE_FORMATTED.PRINTABLE;  
+        	PrintServiceAttributeSet aset = new HashPrintServiceAttributeSet();
+            PrintService[] ps = PrintServiceLookup.lookupPrintServices(flavor, aset);  
+            for (PrintService p: ps) {  
+  
+                System.out.println("Impressora encontrada: " + p.getName());  
+  
+                if (p.getName().equals(imp))  {
+                    System.out.println("Impressora Selecionada: " + p.getName());  
+                    impressora = p;  
+                    break;  
+  
+                }  
+  
+            }  
+  
+        } catch (Exception e) {  
+  
+            e.printStackTrace();  
+  
+        }  
+  
+    }
+    	    
+    public void imprimir(String conteudo) throws IOException, PrintException{
+
+		if (impressora != null) {
+			String defaultPrinter = PrintServiceLookup.lookupDefaultPrintService().getName();
+			System.out.println("Default printer: " + defaultPrinter);
+			//PrintService service = PrintServiceLookup.lookupDefaultPrintService();
+
+			// prints the famous hello world! plus a form feed
+			InputStream is = new ByteArrayInputStream(conteudo.getBytes("UTF8"));
+
+			PrintRequestAttributeSet pras = new HashPrintRequestAttributeSet();
+			pras.add(new Copies(1));
+
+			HashDocAttributeSet attributes = new HashDocAttributeSet();
+
+
+			DocFlavor flavor = DocFlavor.INPUT_STREAM.AUTOSENSE;
+			Doc doc = new SimpleDoc(is, flavor, attributes);
+			DocPrintJob job = impressora.createPrintJob();
+
+			PrintJobWatcher pjw = new PrintJobWatcher(job);
+			job.print(doc, pras);
+			pjw.waitForDone();
+			is.close();
+
+		}
+    }
+    
+    class PrintJobWatcher {
+    	  boolean done = false;
+
+    	  PrintJobWatcher(DocPrintJob job) {
+    	    job.addPrintJobListener(new PrintJobAdapter() {
+    	      public void printJobCanceled(PrintJobEvent pje) {
+    	        allDone();
+    	      }
+    	      public void printJobCompleted(PrintJobEvent pje) {
+    	        allDone();
+    	      }
+    	      public void printJobFailed(PrintJobEvent pje) {
+    	        allDone();
+    	      }
+    	      public void printJobNoMoreEvents(PrintJobEvent pje) {
+    	        allDone();
+    	      }
+    	      void allDone() {
+    	        synchronized (PrintJobWatcher.this) {
+    	          done = true;
+    	          System.out.println("Printing done ...");
+    	          PrintJobWatcher.this.notify();
+    	        }
+    	      }
+    	    });
+    	  }
+    	  public synchronized void waitForDone() {
+    	    try {
+    	      while (!done) {
+    	        wait();
+    	      }
+    	    } catch (InterruptedException e) {
+    	    }
+    	  }
+    }
+  
+}   

@@ -1,0 +1,182 @@
+package br.com.speedy.wsipapp.repository;
+
+
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+import javax.persistence.EntityManager;
+import javax.persistence.Query;
+import javax.persistence.TypedQuery;
+
+import br.com.speedy.wsipapp.enumerated.StatusArmazenamento;
+import br.com.speedy.wsipapp.model.*;
+import br.com.speedy.wsipapp.util.Filtro;
+import br.com.speedy.wsipapp.util.PeixeDisponivel;
+import org.hibernate.Session;
+
+
+public class ArmazenamentoRepository {
+	
+	
+	private EntityManager manager;
+	
+	public ArmazenamentoRepository(){}
+	
+	
+	public ArmazenamentoRepository(EntityManager manager){
+		this.manager = manager;
+	}
+
+
+	public List<PeixeDisponivel> getPeixesDisponiveis(Filtro filtro) {
+		String sql = "select " 
+						+ "p.id, p.descricao, "
+						+ " CASE "
+						//Se houver armazenamento e retirada pesoLiquido - pesoTotalArmazenamento + pesoTotalRetirada
+						+ " WHEN EXISTS (select a.peso from armazenamento a where a.peixe_id = p.id) and EXISTS (select r.peso from retirada r where r.peixe_id = p.id) "
+						+ " 	THEN (sum((l.peso - (l.pesocacapa * l.qtdcaixas))) - (select sum(a.peso) from armazenamento a where a.peixe_id = p.id) + (select sum(r.peso) from retirada r where r.peixe_id = p.id)) "
+						//Se não houver armazenamento e houver retirada pesoLiquido + pesoTotalRetirada
+						+ " WHEN NOT EXISTS (select a.peso from armazenamento a where a.peixe_id = p.id) and EXISTS (select r.peso from retirada r where r.peixe_id = p.id)	"
+						+ " 	THEN (sum((l.peso - (l.pesocacapa * l.qtdcaixas))) + (select sum(r.peso) from retirada r where r.peixe_id = p.id)) "
+						//Se houver armazenamento e não houver retirada pesoLiquido - pesoTotalArmazenamento 
+						+ " WHEN EXISTS (select a.peso from armazenamento a where a.peixe_id = p.id) and NOT EXISTS (select r.peso from retirada r where r.peixe_id = p.id) "
+						+ " 	THEN (sum((l.peso - (l.pesocacapa * l.qtdcaixas))) - (select sum(a.peso) from armazenamento a where a.peixe_id = p.id)) "
+						// Se não houver nenhum dos dois soma somente o peso liquido
+						+ " 	ELSE sum((l.peso - (l.pesocacapa * l.qtdcaixas))) "
+						+ " END AS peso "
+						+ " from lote l  join peixe p on p.id = l.peixe_id  ";
+		
+		if (filtro.getCodigo() != null && !filtro.getCodigo().isEmpty())
+			sql += " join compra c on l.compra_id = c.id ";
+		
+		sql += " where 1=1 ";
+						
+		if (filtro.getDescricao() != null && !filtro.getDescricao().isEmpty())
+			sql += " and p.descricao ilike '" + filtro.getDescricao() + "%'";
+		
+		if (filtro.getCodigo() != null && !filtro.getCodigo().isEmpty())
+			sql += " and p.compra.codigo = '" + filtro.getCodigo() + "'";
+		
+		sql += " group by p.id, p.descricao order by p.descricao";
+		
+		Query query = manager.createNativeQuery(sql);
+		
+		List<PeixeDisponivel> peixes = new ArrayList<PeixeDisponivel>();
+		
+		List<Object[]> list = query.getResultList();
+		
+		for (Object[] objects : list) {
+			PeixeDisponivel peixeDisponivel = new PeixeDisponivel();
+			peixeDisponivel.setId(objects[0] != null ? new Long(objects[0].toString()) : null);
+			peixeDisponivel.setDescricao(objects[1] != null ? objects[1].toString() : null);
+			peixeDisponivel.setPeso(objects[2] != null ? new BigDecimal(objects[2].toString()) : null);
+			
+			peixes.add(peixeDisponivel);
+		}
+		
+		return peixes;
+	}
+	
+	public List<PeixeDisponivel> getPeixesArmazenados(Filtro filtro){
+		
+		String sql = "select "
+						+ " p.id, p.descricao, "
+						+ " CASE "
+						+ " WHEN EXISTS (select r.peso from retirada r where r.peixe_id = p.id) " 
+						+ " 	THEN (sum(a.peso) - (select sum(r.peso) from retirada r where r.peixe_id = p.id)) "
+						+ " 	ELSE sum(a.peso) "
+						+ " END AS peso	"
+						+ " from armazenamento a " 
+						+ " join peixe p on p.id = a.peixe_id";
+		
+		sql += " where 1=1 ";
+		
+		if(filtro.getDescricao() != null && !filtro.getDescricao().isEmpty())
+			sql += " and lower(p.descricao) like '" + filtro.getDescricao().toLowerCase() + "%'";
+		
+		if(filtro.getCamara() != null && !filtro.getCamara().isEmpty())
+			sql += " and lower(a.camara) like '" + filtro.getCamara().toLowerCase() + "%'";
+		
+		if(filtro.getCurral() != null && !filtro.getCurral().isEmpty())
+			sql += " and lower(a.curral) like '" + filtro.getCurral().toLowerCase() + "%'";
+		
+		sql += " group by p.id, p.descricao order by p.descricao";
+		
+		Query query = manager.createNativeQuery(sql);
+		
+		List<PeixeDisponivel> peixes = new ArrayList<PeixeDisponivel>();
+		
+		List<Object[]> list = query.getResultList();
+		
+		for (Object[] objects : list) {
+			PeixeDisponivel peixeDisponivel = new PeixeDisponivel();
+			peixeDisponivel.setId(objects[0] != null ? new Long(objects[0].toString()) : null);
+			peixeDisponivel.setDescricao(objects[1] != null ? objects[1].toString() : null);
+			peixeDisponivel.setPeso(objects[2] != null ? new BigDecimal(objects[2].toString()) : null);
+			
+			peixes.add(peixeDisponivel);
+		}
+		
+		return peixes;
+	}
+	
+	public void salvarAmazenamentosERetiradas(List<Armazenamento> armazenamentos, List<Retirada> retiradas){
+		try {
+
+			manager.getTransaction().begin();
+
+			for (Armazenamento armazenamento : armazenamentos) {
+				if (armazenamento.getId() == null)
+					manager.persist(armazenamento);
+				else
+					manager.merge(armazenamento);
+
+				if(armazenamento.getObservacao() != null) {
+					ObservacaoArmazenamento observacaoArmazenamento = new ObservacaoArmazenamento();
+					observacaoArmazenamento.setUsuario(armazenamento.getUsuario());
+					observacaoArmazenamento.setData(new Date());
+					observacaoArmazenamento.setArmazenamento(armazenamento);
+					observacaoArmazenamento.setObservacao(armazenamento.getObservacao());
+					manager.persist(observacaoArmazenamento);
+				}
+			}
+
+			for (Retirada retirada : retiradas) {
+				if (retirada.getId() == null)
+					manager.persist(retirada);
+				else
+					manager.merge(retirada);
+
+				if(retirada.getObservacao() != null) {
+					ObservacaoArmazenamento observacaoArmazenamento = new ObservacaoArmazenamento();
+					observacaoArmazenamento.setUsuario(retirada.getUsuario());
+					observacaoArmazenamento.setData(new Date());
+					observacaoArmazenamento.setRetirada(retirada);
+					observacaoArmazenamento.setObservacao(retirada.getObservacao());
+					manager.persist(observacaoArmazenamento);
+				}
+			}
+
+			manager.getTransaction().commit();
+		} catch (Exception e) {
+			e.printStackTrace();
+			manager.getTransaction().rollback();
+		}
+	}
+
+	public List<Armazenamento> getInconsistenciasArmazenamentos(Filtro filtro){
+		TypedQuery<Armazenamento> query = manager.createQuery("select a from Armazenamento a where a.status = '" + StatusArmazenamento.RETORNADO + "' AND a.usuario.id = :id", Armazenamento.class);
+		query.setParameter("id", filtro.getId());
+		return query.getResultList();
+	}
+
+	public Integer getNumInconsistenciasArmazenamentos(Filtro filtro){
+		Query query = manager.createNativeQuery("select count(a.id) from armazenamento a join usuario u on u.id = a.usuario_id " +
+				"where a.status = '" + StatusArmazenamento.RETORNADO + "' AND u.id = :id");
+		query.setParameter("id", filtro.getId());
+		Integer num = Integer.parseInt(query.getSingleResult().toString());
+		return num;
+	}
+}

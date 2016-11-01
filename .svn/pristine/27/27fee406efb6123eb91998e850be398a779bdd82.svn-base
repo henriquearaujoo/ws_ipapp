@@ -1,0 +1,96 @@
+package br.com.speedy.wsipapp.model;
+
+import java.math.BigDecimal;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+import br.com.speedy.wsipapp.enumerated.TipoDestinoRetirada;
+
+@Entity
+@Table(name = "retirada")
+public class Retirada implements AbstractEntity{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(unique = true, nullable = false)
+	private Long id;
+	
+	@Column
+	private BigDecimal peso;
+	
+	@Enumerated(EnumType.STRING)
+	private TipoDestinoRetirada destino;
+	
+	@ManyToOne
+	@JoinColumn(name="peixe_id")
+	private Peixe peixe;
+	
+	@ManyToOne
+	@JoinColumn(name="usuario_id")
+	private Usuario usuario;
+	
+	@ManyToOne
+	@JoinColumn(name="armazenamento_id")
+	private Armazenamento armazenamento;
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public BigDecimal getPeso() {
+		return peso;
+	}
+
+	public void setPeso(BigDecimal peso) {
+		this.peso = peso;
+	}
+
+	public TipoDestinoRetirada getDestino() {
+		return destino;
+	}
+
+	public void setDestino(TipoDestinoRetirada destino) {
+		this.destino = destino;
+	}
+
+	public Peixe getPeixe() {
+		return peixe;
+	}
+
+	public void setPeixe(Peixe peixe) {
+		this.peixe = peixe;
+	}
+
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+
+	public Armazenamento getArmazenamento() {
+		return armazenamento;
+	}
+
+	public void setArmazenamento(Armazenamento armazenamento) {
+		this.armazenamento = armazenamento;
+	}
+}

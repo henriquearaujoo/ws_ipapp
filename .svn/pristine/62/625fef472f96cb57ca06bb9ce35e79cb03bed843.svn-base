@@ -1,0 +1,210 @@
+package br.com.speedy.wsipapp.model;
+
+import java.math.BigDecimal;
+import java.util.Date;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+import br.com.speedy.wsipapp.enumerated.StatusArmazenamento;
+import br.com.speedy.wsipapp.enumerated.TipoArmazenamento;
+import br.com.speedy.wsipapp.enumerated.TipoDestinoRetirada;
+
+@Entity
+@Table(name = "armazenamento")
+public class Armazenamento implements AbstractEntity{
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(unique = true, nullable = false)
+	private Long id;
+
+	@Column
+	private BigDecimal peso;
+
+	@Column
+	private BigDecimal pesoEmbalagem;
+
+	@Column
+	private Integer qtdeEmbalagem;
+
+	@Column
+	private Date data;
+
+	@Column
+	private BigDecimal residuo;
+
+	@Column
+	private String unidadeMedida;
+
+	@Enumerated(EnumType.STRING)
+	private StatusArmazenamento status;
+
+	@ManyToOne
+	@JoinColumn(name="tipopeixe_id")
+	private TipoPeixe tipoPeixe;
+
+	@ManyToOne
+	@JoinColumn(name="tamanhopeixe_id")
+	private TamanhoPeixe tamanhoPeixe;
+
+	@ManyToOne
+	@JoinColumn(name="embalagem_id")
+	private Embalagem embalagem;
+
+	@ManyToOne
+	@JoinColumn(name="camara_id")
+	private Camara camara;
+
+	@ManyToOne
+	@JoinColumn(name="posicaocamara_id")
+	private PosicaoCamara posicaoCamara;
+
+	@ManyToOne
+	@JoinColumn(name="peixe_id")
+	private Peixe peixe;
+
+	@ManyToOne
+	@JoinColumn(name="usuario_id")
+	private Usuario usuario;
+
+	public Armazenamento(){
+
+	}
+
+	public Armazenamento(Long id){
+		this.id = id;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public BigDecimal getPeso() {
+		return peso;
+	}
+
+	public void setPeso(BigDecimal peso) {
+		this.peso = peso;
+	}
+
+	public Peixe getPeixe() {
+		return peixe;
+	}
+
+	public void setPeixe(Peixe peixe) {
+		this.peixe = peixe;
+	}
+
+	public BigDecimal getPesoEmbalagem() {
+		return pesoEmbalagem;
+	}
+
+	public void setPesoEmbalagem(BigDecimal pesoEmbalagem) {
+		this.pesoEmbalagem = pesoEmbalagem;
+	}
+
+	public Integer getQtdeEmbalagem() {
+		return qtdeEmbalagem;
+	}
+
+	public void setQtdeEmbalagem(Integer qtdeEmbalagem) {
+		this.qtdeEmbalagem = qtdeEmbalagem;
+	}
+
+	public TipoPeixe getTipoPeixe() {
+		return tipoPeixe;
+	}
+
+	public void setTipoPeixe(TipoPeixe tipoPeixe) {
+		this.tipoPeixe = tipoPeixe;
+	}
+
+	public TamanhoPeixe getTamanhoPeixe() {
+		return tamanhoPeixe;
+	}
+
+	public void setTamanhoPeixe(TamanhoPeixe tamanhoPeixe) {
+		this.tamanhoPeixe = tamanhoPeixe;
+	}
+
+	public Embalagem getEmbalagem() {
+		return embalagem;
+	}
+
+	public void setEmbalagem(Embalagem embalagem) {
+		this.embalagem = embalagem;
+	}
+
+	public Camara getCamara() {
+		return camara;
+	}
+
+	public void setCamara(Camara camara) {
+		this.camara = camara;
+	}
+
+	public PosicaoCamara getPosicaoCamara() {
+		return posicaoCamara;
+	}
+
+	public void setPosicaoCamara(PosicaoCamara posicaoCamara) {
+		this.posicaoCamara = posicaoCamara;
+	}
+
+	public Date getData() {
+		return data;
+	}
+
+	public void setData(Date data) {
+		this.data = data;
+	}
+
+	public BigDecimal getResiduo() {
+		return residuo;
+	}
+
+	public void setResiduo(BigDecimal residuo) {
+		this.residuo = residuo;
+	}
+
+	public String getUnidadeMedida() {
+		return unidadeMedida;
+	}
+
+	public void setUnidadeMedida(String unidadeMedida) {
+		this.unidadeMedida = unidadeMedida;
+	}
+
+	public StatusArmazenamento getStatus() {
+		return status;
+	}
+
+	public void setStatus(StatusArmazenamento status) {
+		this.status = status;
+	}
+
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+}
