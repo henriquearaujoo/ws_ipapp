@@ -39,7 +39,7 @@ public class PedidoRepository {
 		return query.getResultList();
 	}
 
-	public void salvarPedido(Pedido pedido){
+	public void salvarPedido(Pedido pedido, String posto){
 		try{
 			manager.getTransaction().begin();
 
@@ -66,7 +66,14 @@ public class PedidoRepository {
 			historico.setObservacao("Pedido embarcado");
 
 			manager.persist(historico);
+			
+			Rastreabilidade rastreabilidade = new Rastreabilidade();
+			rastreabilidade.setPosto(posto);
+			rastreabilidade.setPedido(pedido);
+			rastreabilidade.setData(new Date());
 
+			manager.persist(rastreabilidade);
+			
 			manager.getTransaction().commit();
 		}catch (Exception e){
 			e.printStackTrace();

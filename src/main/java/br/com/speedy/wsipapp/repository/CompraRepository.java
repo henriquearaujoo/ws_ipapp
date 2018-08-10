@@ -30,7 +30,7 @@ public class CompraRepository {
 	}
 
 
-	public void salvarCompra(Compra compra, Observacao observacao, Impressao impressao) {
+	public void salvarCompra(Compra compra, Observacao observacao, Impressao impressao, Rastreabilidade rastreabilidade) {
 		manager.getTransaction().begin();
 	    try {
 	    	if (compra.getId() == null) {
@@ -38,13 +38,6 @@ public class CompraRepository {
 			}else{
 				manager.merge(compra);
 			}
-
-			/*if (!compra.getPause() && impressao != null){
-				if(impressao.getId() == null)
-					manager.persist(impressao);
-				else
-					manager.merge(impressao);
-			}*/
 
 			if (compra.getId() != null)
 				removerLotesCompra(compra);
@@ -54,14 +47,8 @@ public class CompraRepository {
 				lote.setId(null);
 
 				lote.setCompra(compra);
-				lote.setFornecedor(compra.getFornecedor());
-
-				/*if (lote.getId() == null) {
-					manager.persist(lote);
-				 }else{
-					manager.merge(lote);
-				 // em.persist(lote);
-				 }*/
+				if (compra.getFornecedor() != null)
+					lote.setFornecedor(compra.getFornecedor());
 
 				manager.persist(lote);
 
@@ -78,6 +65,9 @@ public class CompraRepository {
 
 				manager.persist(obs);
 			}
+			
+			rastreabilidade.setData(new Date());
+			manager.persist(rastreabilidade);
 	    	
 	    	if (observacao != null)
 	    		manager.persist(observacao);

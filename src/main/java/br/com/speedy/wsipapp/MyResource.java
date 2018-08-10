@@ -15,6 +15,7 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 
+import br.com.speedy.wsipapp.enumerated.Posto;
 import br.com.speedy.wsipapp.enumerated.StatusArmazenamento;
 import br.com.speedy.wsipapp.enumerated.StatusPedido;
 import br.com.speedy.wsipapp.model.*;
@@ -25,6 +26,7 @@ import org.apache.commons.fileupload.FileItemFactory;
 import org.apache.commons.fileupload.FileUploadException;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
+import org.jboss.logging.annotations.Pos;
 import org.jboss.weld.bean.builtin.ee.ServletContextBean;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -161,11 +163,18 @@ public class MyResource {
 
 		try {
 			JSONObject object = new JSONObject(data);
+			
+			String posto = object.getString("posto");
+			
 			compra = new Compra();
 			compra = getCompra(object);	
 
 			CompraRepository compras = new CompraRepository(manager);
-			compras.salvarCompra(compra, observacao, impressao);
+			
+			Rastreabilidade rastreabilidade = new Rastreabilidade();
+			rastreabilidade.setPosto(posto);
+			rastreabilidade.setCompra(compra);
+			compras.salvarCompra(compra, observacao, impressao, rastreabilidade);
 			
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -220,6 +229,8 @@ public class MyResource {
 		PrecoDiferenciadoRepository repository = new PrecoDiferenciadoRepository(manager);
 
 		compra = new Compra();
+		
+		String posto = object.getString("posto");
 
 		if (object.has("id"))
 			compra.setId(object.getLong("id"));
@@ -237,19 +248,22 @@ public class MyResource {
 			compra.setStatusCompra(StatusCompra.ENVIADO);
 		compra.setIdUsuarioCompra(object.getLong("idUsuarioCompra"));
 		
-		JSONObject jsonFornec = object.getJSONObject("fornecedor");
-		JSONObject jsonBarco = object.getJSONObject("barco");
+		if (!posto.equals(Posto.TUNEL.toString())){
+			JSONObject jsonFornec = object.getJSONObject("fornecedor");
+			JSONObject jsonBarco = object.getJSONObject("barco");
+			
+			Fornecedor fornecedor = new Fornecedor();
+			fornecedor.setId(jsonFornec.getLong("id"));
+			fornecedor.setNome(jsonFornec.getString("nome"));
+			
+			Barco barco = new Barco();
+			barco.setId(jsonBarco.getLong("id"));
+			barco.setNome(jsonBarco.getString("nome"));
+			
+			compra.setFornecedor(fornecedor);
+			compra.setBarco(barco);
+		}
 		
-		Fornecedor fornecedor = new Fornecedor();
-		fornecedor.setId(jsonFornec.getLong("id"));
-		fornecedor.setNome(jsonFornec.getString("nome"));
-		
-		Barco barco = new Barco();
-		barco.setId(jsonBarco.getLong("id"));
-		barco.setNome(jsonBarco.getString("nome"));
-		
-		compra.setFornecedor(fornecedor);
-		compra.setBarco(barco);
 		JSONArray jsonArray = object.getJSONArray("lotes");
 		
 		for (int i = 0, tam = jsonArray.length(); i < tam ; i++) {
@@ -274,7 +288,10 @@ public class MyResource {
 			lote.setQtdCaixas(loteJson.getInt("qtdCaixas"));
 			lote.setPesoCacapa(new BigDecimal(loteJson.getDouble("pesoCacapa")));
 
-			PrecoDiferenciado pd = repository.getPrecoDiferenciadoPorFornecedorEPeixe(lote.getFornecedor(), lote.getPeixe());
+			PrecoDiferenciado pd = null;
+			
+			if (lote.getFornecedor() != null)
+				pd = repository.getPrecoDiferenciadoPorFornecedorEPeixe(lote.getFornecedor(), lote.getPeixe());
 
 			if (pd != null){
 				lote.setValorUnitarioPeixe(pd.getValor());
@@ -920,6 +937,8 @@ public class MyResource {
 
 			List<Armazenamento> armazenamentos = new ArrayList<Armazenamento>();
 			List<Retirada> retiradas = new ArrayList<Retirada>();
+			
+			String posto = object.getString("posto");
 
 			Date dataSalvo = new Date();
 
@@ -935,21 +954,32 @@ public class MyResource {
 					armazenamento.setPesoEmbalagem(new BigDecimal(jListas.getJSONObject(i).getDouble("pesoEmbalagem")));
 					armazenamento.setQtdeEmbalagem(jListas.getJSONObject(i).getInt("qtdeEmbalagem"));
 					armazenamento.setData(new Date());
-					if (jListas.getJSONObject(i).getString("status").equals("enviar"))
-						armazenamento.setStatus(StatusArmazenamento.ENVIADO);
-					else {
-						armazenamento.setStatus(StatusArmazenamento.SALVO);
-						armazenamento.setDataSalvo(dataSalvo);
+					if (!posto.equals(Posto.TUNEL.toString())){
+						if (jListas.getJSONObject(i).getString("status").equals("enviar"))
+							armazenamento.setStatus(StatusArmazenamento.AUTORIZADO);
+						else {
+							armazenamento.setStatus(StatusArmazenamento.SALVO);
+							armazenamento.setDataSalvo(dataSalvo);
+						}
+					}else{
+						armazenamento.setStatus(StatusArmazenamento.TUNEL);
 					}
+						
 					armazenamento.setObservacao(jListas.getJSONObject(i).has("observacao") ? jListas.getJSONObject(i).getString("observacao") : null);
 
 					Usuario usuario = new Usuario();
 					usuario.setId(jListas.getJSONObject(i).getJSONObject("usuario").getLong("id"));
 					armazenamento.setUsuario(usuario);
 
-					Camara camara = new Camara();
-					camara.setId(jListas.getJSONObject(i).getJSONObject("camara").getLong("id"));
-					armazenamento.setCamara(camara);
+					if (!posto.equals(Posto.TUNEL.toString())){
+						Camara camara = new Camara();
+						camara.setId(jListas.getJSONObject(i).getJSONObject("camara").getLong("id"));
+						armazenamento.setCamara(camara);
+						
+						PosicaoCamara posicaoCamara = new PosicaoCamara();
+						posicaoCamara.setId(jListas.getJSONObject(i).getJSONObject("posicaoCamara").getLong("id"));
+						armazenamento.setPosicaoCamara(posicaoCamara);
+					}
 
 					if (jListas.getJSONObject(i).getJSONObject("embalagem").has("id")) {
 						Embalagem embalagem = new Embalagem();
@@ -961,10 +991,6 @@ public class MyResource {
 					Peixe peixe = new Peixe();
 					peixe.setId(jListas.getJSONObject(i).getJSONObject("peixe").getLong("id"));
 					armazenamento.setPeixe(peixe);
-
-					PosicaoCamara posicaoCamara = new PosicaoCamara();
-					posicaoCamara.setId(jListas.getJSONObject(i).getJSONObject("posicaoCamara").getLong("id"));
-					armazenamento.setPosicaoCamara(posicaoCamara);
 
 					if (jListas.getJSONObject(i).getJSONObject("tamanhoPeixe").has("id")) {
 						TamanhoPeixe tamanhoPeixe = new TamanhoPeixe();
@@ -985,11 +1011,15 @@ public class MyResource {
 					retirada.setPeso(new BigDecimal(jListas.getJSONObject(i).getDouble("peso")));
 					retirada.setQtdeEmbalagem(jListas.getJSONObject(i).getInt("qtdeEmbalagem"));
 					retirada.setDestino(TipoDestinoRetirada.valueOf(jListas.getJSONObject(i).getString("destino")));
-					if (jListas.getJSONObject(i).getString("status").equals("enviar"))
-						retirada.setStatus(StatusArmazenamento.ENVIADO);
-					else{
-						retirada.setStatus(StatusArmazenamento.SALVO);
-						retirada.setDataSalvo(dataSalvo);
+					if (!posto.equals(Posto.TUNEL.toString())){
+						if (jListas.getJSONObject(i).getString("status").equals("enviar"))
+							retirada.setStatus(StatusArmazenamento.AUTORIZADO);
+						else{
+							retirada.setStatus(StatusArmazenamento.SALVO);
+							retirada.setDataSalvo(dataSalvo);
+						}
+					}else{
+						retirada.setStatus(StatusArmazenamento.TUNEL);
 					}
 					retirada.setData(new Date());
 					retirada.setObservacao(jListas.getJSONObject(i).has("observacao") ? jListas.getJSONObject(i).getString("observacao") : null);
@@ -1002,13 +1032,22 @@ public class MyResource {
 					peixe.setId(jListas.getJSONObject(i).getJSONObject("peixe").getLong("id"));
 					retirada.setPeixe(peixe);
 
-					Camara camara = new Camara();
-					camara.setId(jListas.getJSONObject(i).getJSONObject("camara").getLong("id"));
-					retirada.setCamara(camara);
-
-					PosicaoCamara posicaoCamara = new PosicaoCamara();
-					posicaoCamara.setId(jListas.getJSONObject(i).getJSONObject("posicaoCamara").getLong("id"));
-					retirada.setPosicaoCamara(posicaoCamara);
+					if (!posto.equals(Posto.TUNEL.toString())){
+						Camara camara = new Camara();
+						camara.setId(jListas.getJSONObject(i).getJSONObject("camara").getLong("id"));
+						retirada.setCamara(camara);
+						
+						PosicaoCamara posicaoCamara = new PosicaoCamara();
+						posicaoCamara.setId(jListas.getJSONObject(i).getJSONObject("posicaoCamara").getLong("id"));
+						retirada.setPosicaoCamara(posicaoCamara);
+					}
+					
+					if (jListas.getJSONObject(i).getJSONObject("embalagem").has("id")) {
+						Embalagem embalagem = new Embalagem();
+						embalagem.setId(jListas.getJSONObject(i).getJSONObject("embalagem").getLong("id"));
+						retirada.setEmbalagem(embalagem);
+					}else
+						retirada.setEmbalagem(null);
 
 					TipoPeixe tipoPeixe = new TipoPeixe();
 					tipoPeixe.setId(jListas.getJSONObject(i).getJSONObject("tipoPeixe").getLong("id"));
@@ -1027,7 +1066,8 @@ public class MyResource {
 			}
 
 			ArmazenamentoRepository repository = new ArmazenamentoRepository(manager);
-			repository.salvarAmazenamentosERetiradas(armazenamentos, retiradas);
+			
+			repository.salvarAmazenamentosERetiradas(armazenamentos, retiradas, posto);
 
 			jRetorno.put("valido", true);
 		}catch (Exception e){
@@ -1561,7 +1601,8 @@ public class MyResource {
 				pedido.getProdutos().add(produto);
 			}
 
-			repository.salvarPedido(pedido);
+			String posto = jPedido.getString("posto");
+			repository.salvarPedido(pedido, posto);
 
 			jRetorno.put("valido", true);
 		}catch (Exception e){

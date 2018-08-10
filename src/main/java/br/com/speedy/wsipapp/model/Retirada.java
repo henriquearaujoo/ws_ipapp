@@ -52,6 +52,10 @@ public class Retirada implements AbstractEntity{
 	private TamanhoPeixe tamanhoPeixe;
 
 	@ManyToOne
+	@JoinColumn(name="embalagem_id")
+	private Embalagem embalagem;
+	
+	@ManyToOne
 	@JoinColumn(name="camara_id")
 	private Camara camara;
 
@@ -185,4 +189,13 @@ public class Retirada implements AbstractEntity{
 	public void setTamanhoPeixe(TamanhoPeixe tamanhoPeixe) {
 		this.tamanhoPeixe = tamanhoPeixe;
 	}
+
+	public Embalagem getEmbalagem() {
+		return embalagem;
+	}
+
+	public void setEmbalagem(Embalagem embalagem) {
+		this.embalagem = embalagem;
+	}
+	
 }

@@ -8,6 +8,7 @@ public enum StatusArmazenamento {
 	ENVIADO("ENVIADO"),
 	AUTORIZADO("AUTORIZADO"),
 	RETORNADO("RETORNADO"),
+	TUNEL("TUNEL"),
 	SALVO("SALVO");
 	
 	

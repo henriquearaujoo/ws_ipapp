@@ -123,14 +123,20 @@ public class ArmazenamentoRepository {
 		return peixes;
 	}
 	
-	public void salvarAmazenamentosERetiradas(List<Armazenamento> armazenamentos, List<Retirada> retiradas){
+	public void salvarAmazenamentosERetiradas(List<Armazenamento> armazenamentos, List<Retirada> retiradas, String posto){
 		try {
 
 			manager.getTransaction().begin();
 
 			for (Armazenamento armazenamento : armazenamentos) {
-				if (armazenamento.getId() == null)
+				if (armazenamento.getId() == null){
 					manager.persist(armazenamento);
+					Rastreabilidade rastreabilidade = new Rastreabilidade();
+					rastreabilidade.setPosto(posto);
+					rastreabilidade.setArmazenamento(armazenamento);
+					rastreabilidade.setData(new Date());
+					manager.persist(rastreabilidade);
+				}
 				else
 					manager.merge(armazenamento);
 
@@ -145,8 +151,14 @@ public class ArmazenamentoRepository {
 			}
 
 			for (Retirada retirada : retiradas) {
-				if (retirada.getId() == null)
+				if (retirada.getId() == null){
 					manager.persist(retirada);
+					Rastreabilidade rastreabilidade = new Rastreabilidade();
+					rastreabilidade.setPosto(posto);
+					rastreabilidade.setRetirada(retirada);
+					rastreabilidade.setData(new Date());
+					manager.persist(rastreabilidade);
+				}
 				else
 					manager.merge(retirada);
 
